@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{328BE41D-9803-4EAB-94B9-11F33C308401}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FisiksAppWeb</RootNamespace>
+    <AssemblyName>FisykDTO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\AfeccionesTratamientosDTO.cs" />
+    <Compile Include="Entities\AfeccionesDto.cs" />
+    <Compile Include="Entities\AgendaDto.cs" />
+    <Compile Include="Entities\AntecedenteMedicoDto.cs" />
+    <Compile Include="Entities\EspecialidadesDto.cs" />
+    <Compile Include="Entities\LicenciasDto.cs" />
+    <Compile Include="Entities\LicenciasTipoDto.cs" />
+    <Compile Include="Entities\MatriculaDto.cs" />
+    <Compile Include="Entities\MatriculaTipoDto.cs" />
+    <Compile Include="Entities\PacienteAntecedentesDto.cs" />
+    <Compile Include="Entities\ProfesionalEspecialidadesDto.cs" />
+    <Compile Include="Entities\ProfesionalMatriculaDto.cs" />
+    <Compile Include="Entities\SesionDetalleDto.cs" />
+    <Compile Include="Entities\TestDetalleDto.cs" />
+    <Compile Include="Entities\DiaAtencionDto.cs" />
+    <Compile Include="Entities\DiaDto.cs" />
+    <Compile Include="Entities\DomicilioDto.cs" />
+    <Compile Include="Entities\EstadoDto.cs" />
+    <Compile Include="Entities\HistoriaClinicaDto.cs" />
+    <Compile Include="Entities\LocalidadDto.cs" />
+    <Compile Include="Entities\ObraSocialDto.cs" />
+    <Compile Include="Entities\PacienteOsDto.cs" />
+    <Compile Include="Entities\PacienteDto.cs" />
+    <Compile Include="Entities\PaisDto.cs" />
+    <Compile Include="Entities\PersonaDto.cs" />
+    <Compile Include="Entities\ProfesionalDto.cs" />
+    <Compile Include="Entities\ProvinciaDto.cs" />
+    <Compile Include="Entities\SesionDto.cs" />
+    <Compile Include="Entities\TestDto.cs" />
+    <Compile Include="Entities\AfeccionesTiposDto.cs" />
+    <Compile Include="Entities\DiaTipoDto.cs" />
+    <Compile Include="Entities\TestTipoDto.cs" />
+    <Compile Include="Entities\TratamientoDto.cs" />
+    <Compile Include="Entities\TurneroDto.cs" />
+    <Compile Include="Entities\TurnoDto.cs" />
+    <Compile Include="Entities\VacacionesDto.cs" />
+    <Compile Include="Entities\ZonaCuerpoDto.cs" />
+    <Compile Include="Entities\OcupacionesDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\SexoDto.cs" />
+    <Compile Include="Entities\TipoDocumentoDto.cs" />
+    <Compile Include="Util\CommonBase.cs" />
+    <Compile Include="Util\DTOBase.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
