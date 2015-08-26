@@ -253,10 +253,12 @@
 
                         <td class="alignRight">Obra social:</td>
                         <td class="alignLeft">
-                            <input runat="server" class="form-control" id="addEventOS" placeholder="Obra social..." />
+                            <select id="addEventOS" onchange="cargarCoseguro(this.value)">
+                            </select>
                             <br />
                         </td>
                     </tr>
+
 
                     <tr>
                         <td class="alignRight">Kinesiólogo:</td>

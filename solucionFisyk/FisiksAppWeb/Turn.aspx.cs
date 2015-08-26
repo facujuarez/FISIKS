@@ -139,16 +139,16 @@ namespace FisiksAppWeb
             {
                 PacienteDto pac = new PacienteDto();
                 pac = ManagerPacientes.ExistePaciente(doc);
-                
+
                 return pac;
             }
             else { return null; }
-            
+
         }
         [System.Web.Services.WebMethod(true)]
         public static PacienteDto buscarPacienteId(int idPae)
         {
-            if (idPae!=0)
+            if (idPae != 0)
             {
                 PacienteDto pac = new PacienteDto();
                 pac = ManagerPacientes.ExistePacienteId(idPae);
@@ -158,15 +158,25 @@ namespace FisiksAppWeb
             else { return null; }
 
         }
+        private void Limpiar()
+        { }
 
+        public static List<PacienteOsDto> buscarOSPaciente(int idPac)
+        {
+            List<PacienteOsDto> listaObraSoc = new List<PacienteOsDto>();
+            try
+            {
+                listaObraSoc = ManagerObraSociales.ListObraSocialesPaciente(idPac);
+                
+            }
+            catch (Exception e)
+            {
+                var script = "showAlert('Error al cargar Obras Sociales','2');";
+                //ScriptManager.RegisterStartupScript(this,typeof(Page), "showAlert", script, true);
+            }
+            return listaObraSoc;
+        }
 
-
-        //public static Turn Instance
-        //{
-        //    get { return instance; }
-        //}
-
-        //private static Turn instance = new Turn();
 
     }
 }

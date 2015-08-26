@@ -9,7 +9,7 @@ function updateEvent(event, element) {
     if ($(this).data("qtip")) $(this).qtip("destroy");
 
     currentUpdateEvent = event;
-    
+
 
     $("#eventId").val(event.id);
     $('#updatedialog').dialog('open');
@@ -19,10 +19,10 @@ function updateEvent(event, element) {
     $("#eventKine").val(event.pro);
     $("#eventOS").val(event.osp);
     $("#eventMonto").val(event.monto);
-    
+
     var idPac = $("#eventPaeId").val();
     PageMethods.buscarPacienteId(idPac, cargarPacienteUpdate);
-    
+
     $("#eventStart").text("" + event.start.toLocaleString());
 
     if (event.end === null) {
@@ -35,7 +35,7 @@ function updateEvent(event, element) {
     return false;
 }
 function cargarPacienteUpdate(paciente) {
-    
+
     if (paciente != null) {
 
         $("#eventPaciente").val(paciente.PaeId);
@@ -50,30 +50,50 @@ function cargarPacienteUpdate(paciente) {
     else
         alert("No se encontro el paciente");
 
-
-
 }
 
 function cargarPaciente(paciente) {
 
     if (paciente != null) {
-        
+
+        PageMethods.buscarOSPaciente(paciente.PaeId, cargarObraSocial);
+
         $("#addEventPaciente").val(paciente.PaeId);
         $("#addTxtNombre").val(paciente.PsnNombre);
         $("#addTxtApellido").val(paciente.PsnApellido);
         $("#addTxtTel").val(paciente.PsnTelefono);
 
-        //PageMethods.buscarPacienteId(idPac, cargarPacienteUpdate);
-
         //alert("Paciente agregado");
-        
+
     }
     else
         alert("No se encontro el paciente");
 
-   
-    
+}
+function cargarObraSocial(ObrasSociales) {
 
+    var option = '';
+    if (ObrasSociales != null) {
+
+        //Ver que devuelve la OS y recorrela para cargar el combo
+        
+        for (var i = 0; i < ObrasSociales.length; i++) {
+            option += '<option value="' + ObrasSociales[i].OspId + '">' + ObrasSociales[i].OsoDescripcion + '</option>';
+        }
+        $('#addEventOS').append(option);
+
+       
+
+        //alert("Paciente agregado");
+
+    
+    }
+    else
+        alert("No se encontro el paciente");
+
+}
+function cargarCoseguro(selectedValue) {
+    //Cargar coseguro segun selectedValue
 }
 
 function deleteSuccess(deleteResult) {
@@ -82,7 +102,7 @@ function deleteSuccess(deleteResult) {
 
 function addSuccess(addResult) {
     // if addresult is -1, means event was not added
-    
+
     if (addResult != -1) {
         alert("Turno agregado: " + addResult);
         location.reload();
@@ -111,7 +131,7 @@ function updateEventOnDropResize(event, allDay) {
 
     var eventToUpdate = {
         id: event.id,
-        start: event.start        
+        start: event.start
     };
 
     if (event.end === null) {
@@ -181,20 +201,20 @@ function qTipText(start, end, pae, pro) {
             "<br/><strong>Fin:</strong>" +
             "<br/><br/><strong>Paciente:</strong>" + pae +
                "<br/><br/><strong>Kinesiólogo:</strong>" + pro;
-            
+
 
     return text;
 }
 
 $(document).ready(function () {
-    
+
     // update Dialog
     $('#updatedialog').dialog({
         autoOpen: false,
         width: 550,
         buttons: {
             "Actualizar": function () {
-                
+
                 var eventToUpdate = {
                     id: currentUpdateEvent.id,
                     title: $("#eventName").val(),
@@ -223,7 +243,7 @@ $(document).ready(function () {
                     currentUpdateEvent.pro = $("#eventKine").val();
                     currentUpdateEvent.osp = $("#eventOS").val();
                     currentUpdateEvent.monto = $("#eventMonto").val();
-                    
+
 
                     $('#calendar').fullCalendar('updateEvent', currentUpdateEvent);
                 }
@@ -254,7 +274,7 @@ $(document).ready(function () {
                 var eventToAdd = {
                     title: $("#addEventName").val(),
                     description: $("#addEventDesc").val(),
-                    
+
                     start: addStartDate.toJSON(),
                     end: addEndDate.toJSON(),
 
@@ -263,7 +283,7 @@ $(document).ready(function () {
                     osp: $("#addEventOS").val(),
                     monto: $("#addEventMonto").val(),
                     allDay: isAllDay(addStartDate, addEndDate)
-                                       
+
                 };
 
                 if (checkForSpecialChars(eventToAdd.title)
@@ -275,14 +295,14 @@ $(document).ready(function () {
                 else {
                     //alert("sending " + eventToAdd.pac);
                     PageMethods.AddEvent(eventToAdd, addSuccess);
-                    $('#calendar').fullCalendar('renderEvent',eventToAdd,true);
+                    $('#calendar').fullCalendar('renderEvent', eventToAdd, true);
                     $('#calendar').fullCalendar('unselect');
                     $(this).dialog("close");
 
                 }
             },
-			"Cancelar": function () {$(this).dialog("close");}
-			
+            "Cancelar": function () { $(this).dialog("close"); }
+
         }
     });
 
@@ -294,10 +314,10 @@ $(document).ready(function () {
         weekday: "long", year: "numeric", month: "short",
         day: "numeric", hour: "2-digit", minute: "2-digit"
     };
-    
+
     $('#calendar').fullCalendar({
         theme: true,
-		header: {
+        header: {
             left: 'prev,next today',
             center: 'title',
             right: 'agendaWeek,agendaDay'
@@ -305,17 +325,17 @@ $(document).ready(function () {
         defaultView: 'agendaDay',
         eventClick: updateEvent,
         selectable: true,
-		selectHelper: true,
-		select: selectDate,
-	    editable: true,
-		events: "JsonResponse.ashx",
-		minTime: "07:00:00", //8am
-		maxTime: "23:00:00", //7am
-		eventDrop: eventDropped,
-		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
-		dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-		dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+        selectHelper: true,
+        select: selectDate,
+        editable: true,
+        events: "JsonResponse.ashx",
+        minTime: "07:00:00", //8am
+        maxTime: "23:00:00", //7am
+        eventDrop: eventDropped,
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
         eventResize: eventResized,
         eventRender: function (event, element) {
             //alert(event.pac);
