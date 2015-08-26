@@ -1,0 +1,99 @@
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykBLL.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykBLL.pdb
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykDAL.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykDTO.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykDAL.pdb
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykDTO.pdb
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.dll
+C:\Users\Chapa Santoro\Desktop\ProyFisyk\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykBLL.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykBLL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykDAL.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykDTO.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\Oracle.DataAccess.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykDAL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\bin\Debug\FisykDTO.pdb
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.dll
+D:\UTN\ProyFisyk\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.pdb
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\bin\Debug\FisykBLL.dll
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\bin\Debug\FisykBLL.pdb
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\bin\Debug\FisykDAL.dll
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\bin\Debug\FisykDTO.dll
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\bin\Debug\FisykDAL.pdb
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\bin\Debug\FisykDTO.pdb
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.dll
+C:\Users\Nati\Documents\GitHub\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\bin\Debug\FisykBLL.dll
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\bin\Debug\FisykBLL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\bin\Debug\FisykDAL.dll
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\bin\Debug\FisykDTO.dll
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\bin\Debug\Oracle.DataAccess.dll
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\bin\Debug\FisykDAL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\bin\Debug\FisykDTO.pdb
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.dll
+D:\UTN\ProyFisyk\SolucionFisyk170815\SolucionFisyk\FisykBLL\obj\Debug\FisykBLL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\bin\Debug\FisykBLL.dll
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\bin\Debug\FisykBLL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\bin\Debug\FisykDAL.dll
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\bin\Debug\FisykDTO.dll
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\bin\Debug\Oracle.DataAccess.dll
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\bin\Debug\FisykDAL.pdb
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\bin\Debug\FisykDTO.pdb
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\obj\Debug\FisykBLL.dll
+D:\UTN\ProyFisyk\SolucionFisyk - copia (2)\FisykBLL\obj\Debug\FisykBLL.pdb
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykBLL.dll
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykBLL.pdb
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDAL.dll
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDTO.dll
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDAL.pdb
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDTO.pdb
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.dll
+C:\Users\Santiago\Desktop\Versiones\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykBLL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykBLL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.pdb
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykBLL.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykBLL.pdb
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDAL.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDTO.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDAL.pdb
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDTO.pdb
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.pdb
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykBLL.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykBLL.pdb
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDAL.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDTO.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDAL.pdb
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\bin\Debug\FisykDTO.pdb
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.dll
+C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykBLL\obj\Debug\FisykBLL.pdb
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\bin\Debug\FisykBLL.dll
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\bin\Debug\FisykBLL.pdb
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\bin\Debug\FisykDAL.dll
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\bin\Debug\FisykDTO.dll
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\bin\Debug\Oracle.DataAccess.dll
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\bin\Debug\FisykDAL.pdb
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\bin\Debug\FisykDTO.pdb
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\obj\Debug\FisykBLL.csprojResolveAssemblyReference.cache
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\obj\Debug\FisykBLL.dll
+D:\Fisiks\25-08 -solucionFisyk\FisykBLL\obj\Debug\FisykBLL.pdb
