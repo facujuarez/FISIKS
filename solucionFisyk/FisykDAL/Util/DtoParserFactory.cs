@@ -35,9 +35,10 @@ namespace FisykDAL
                    return new DpAgenda();
                 case "LicenciasTipoDto":
                    return new DpLicenciasTipo();
+                case "ProfesionalEspecialidadesDto":
+                   return new DpProfesionalEspecialidades();
                 case "TurneroDto":
                    return new DpTurno();
-
             }
 
             throw new Exception("Unknown Type");

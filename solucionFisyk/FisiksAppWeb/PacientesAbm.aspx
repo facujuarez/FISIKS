@@ -3,32 +3,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
-    <!--Mask-->
-    <%--   <script src="../plugins/input-mask/jquery.inputmask.js"></script>
-        <script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-        <script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>--%>
-
     <script type="text/javascript">
-        //$(document).ready(function () {
         function filtrarGrilla(){
             var txtFiltro = '#' + '<%=txtBuscar.ClientID %>';
             var grillaJedis = '#' + '<%=gvPac.ClientID %>';
             $(txtFiltro).quicksearch(grillaJedis + ' tbody tr');}
-        //});
-        //$(document).ready(function(){
-        //    $(":input").inputmask();
-        //});
     </script>
 
     <script type="text/javascript">
         function cambioTxt() {
             var largoTxt = document.getElementById('<%=txtBuscar.ClientID %>').value.length;
             if (largoTxt == 0) {
-                //alert("vacio!" + largoTxt);
                 document.getElementById('divPanelListPaciente').setAttribute('style', 'display:none');
             }
             if (largoTxt > 0) {
-                //alert("Algo!" + largoTxt);
                 filtrarGrilla();
                 document.getElementById('divPanelListPaciente').setAttribute('style', 'visibility:visible');
                 document.getElementById('divPanelPantalla').setAttribute('style', 'display:none');
@@ -204,44 +192,27 @@
  
             return /\d/.test(String.fromCharCode(keynum));
         }
-        <%-- var d = new Date('09/14/1990');
-        $(function () {
-            $('#<%=txtFecNac.ClientID%>').datetimepicker({
-                viewMode: 'years',
-                format: 'DD/MM/YYYY',
-                maxDate: d,
-                locale: 'es'
-
-            });
-        });--%>
+       
+        
     </script>
-    <%-- <script type="text/javascript">
+
+    <script type="text/javascript">
         $(function () {
-            $('#datetimepicker1').datetimepicker();
+            $('#<%=txtFecNac.ClientID%>').datetimepicker({ viewMode: 'years',
+                format: 'DD/MM/YYYY',
+                //maxDate: d,
+                locale: 'es'});
         });
-    </script>--%>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="container" id="containerPantalla">
 
         <h5><font color="#3c8dbc"><b>PACIENTES</b></font></h5>
         <div class="form-group">
             <input type="text" class="form-control" id="txtBuscar" name="txtBuscar" runat="server" onkeyup="cambioTxt()" placeholder="Búscar Pacientes..." />
         </div>
-        <%--<div id="container">
-            <div class="row">
-                <div class='col-sm-6'>
-                    <div class="form-group">
-                        <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>--%>
 
         <div id="divPanelPantalla">
             <asp:Panel ID="PanelPantalla" runat="server">
@@ -251,25 +222,18 @@
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-
                                         <div class="row">
-
-                                            <div class="col-md-11">
+                                            <div class="col-md-10">
                                                 Datos Pesonales
                                             </div>
-
-                                            <div class="col-md-1">
-                                                <button type="button" id="btnObrasocial" runat="server" class="btn btn-sm btn-warning ">
+                                            <div class="col-md-2">
+                                                <button type="button" id="btnHc" runat="server" class="btn btn-sm btn-warning ">
                                                     HC  <span class="badge">
                                                         <asp:Label ID="lblPaeId" runat="server" Text="" Visible="true"></asp:Label>
                                                     </span>
                                                 </button>
-
                                             </div>
                                         </div>
-                                        <%--<button class="btn btn-primary" type="button">
-                                             Messages <span class="badge">4</span>
-                                         </button>--%>
                                     </a>
                                 </h4>
                             </div>
@@ -280,9 +244,8 @@
                                             <div class="A">
                                                 <div class="form-group">
                                                     <div class="col-md-3">
-                                                        <%-- <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">--%>
                                                         <label class="col-md-3 control-label" size="small">Documento</label>
-                                                        <input runat="server" type="text" id="txtDocumento" maxlength="8" onkeypress="return validarNum(event);" name="txtDocumento" class="form-control" placeholder="Documento Paciente..." />
+                                                        <input runat="server" type="text" id="txtDocumento" maxlength="8" onkeypress="return validarNum(event);" name="txtDocumento" class="form-control" placeholder="Ingresar Documento..." />
                                                         <span class="help-block" id="mensajeDocumento" />
                                                     </div>
                                                 </div>
@@ -291,7 +254,7 @@
                                                 <div class="form-group">
                                                     <div class="col-md-3">
                                                         <label class="col-md-3 control-label">Nombre</label>
-                                                        <input id="txtNombre" runat="server" type="text" maxlength="32" onkeypress="return soloLetras(event)" class="form-control" placeholder="Igresar Nombre..." />
+                                                        <input id="txtNombre" runat="server" type="text" maxlength="32" onkeypress="return soloLetras(event)" class="form-control" placeholder="Ingresar Nombre..." />
                                                         <span class="help-block" id="mensajeNombre" />
                                                     </div>
                                                 </div>
@@ -300,7 +263,7 @@
                                                 <div class="form-group">
                                                     <div class="col-md-3">
                                                         <label class="col-md-3 control-label">Apellido</label>
-                                                        <input id="txtApellido" runat="server" type="text" class="form-control" maxlength="32" onkeypress="return soloLetras(event)" placeholder="Igresar Apellido..." />
+                                                        <input id="txtApellido" runat="server" type="text" class="form-control" maxlength="32" onkeypress="return soloLetras(event)" placeholder="Ingresar Apellido..." />
                                                         <span class="help-block" id="mensajeApellido" />
                                                     </div>
                                                 </div>
@@ -309,7 +272,7 @@
                                                 <div class="form-group">
                                                     <div class="col-md-3">
                                                         <label class="col-md-3 control-label">Télefono</label>
-                                                        <input id="txtTel" type="text" runat="server" onkeypress="return validarNum(event);" maxlength="11" class="form-control" placeholder="Igresar Teléfono..." />
+                                                        <input id="txtTel" type="text" runat="server" onkeypress="return validarNum(event);" maxlength="16" class="form-control" placeholder="Ingresar Teléfono..." />
                                                         <span class="help-block" id="mensajeTelefono" />
                                                     </div>
                                                 </div>
@@ -323,7 +286,7 @@
                                                 <div class="form-group">
                                                     <div class="col-md-3">
                                                         <label class="col-md-3 control-label">Fecha</label>
-                                                        <input id="txtFecNac" runat="server" type="text" maxlength="10" class="form-control" />
+                                                        <input id="txtFecNac" runat="server" type="text" maxlength="10" class="form-control" placeholder="Ingresar Fecha Nacimiento..." />
                                                         <%--data-inputmask="'alias': 'dd/mm/yyyy'" data-mask />--%>
                                                         <span class="help-block" id="mensajeFecha" />
                                                     </div>
@@ -333,7 +296,7 @@
                                                 <div class="form-group">
                                                     <div class="col-md-3">
                                                         <label class="col-md-3 control-label">Email</label>
-                                                        <input id="txtMail" type="email" runat="server" maxlength="25" class="form-control" placeholder="Igresar Email..." />
+                                                        <input id="txtMail" type="email" runat="server" maxlength="40" class="form-control" placeholder="Ingresar Email..." />
                                                         <span class="help-block" id="mensajeMail" />
                                                     </div>
                                                 </div>
@@ -342,7 +305,7 @@
                                                 <div class="form-group">
                                                     <div class="col-md-3">
                                                         <label class="col-md-3 control-label">Domicilio</label>
-                                                        <input id="txtDire" runat="server" class="form-control" onkeypress="return sinCaracteres(event)" placeholder="Igresar Domicilio.." />
+                                                        <input id="txtDire" runat="server" class="form-control" maxlength="40" onkeypress="return sinCaracteres(event)" placeholder="Ingresar Domicilio.." />
                                                     </div>
                                                 </div>
                                             </div>
@@ -378,7 +341,6 @@
                                                         <Triggers>
                                                             <asp:AsyncPostBackTrigger ControlID="btnOSAgregar" EventName="Click" />
                                                             <asp:AsyncPostBackTrigger ControlID="gvOsocial" EventName="RowDeleting" />
-                                                            <asp:AsyncPostBackTrigger ControlID="gvOsocial" EventName="SelectedIndexChanging" />
                                                         </Triggers>
                                                         <ContentTemplate>
                                                             <div class="bloque">
@@ -424,7 +386,6 @@
                                                                             <asp:BoundField DataField="OSPNROSOCIO" HeaderText="Número de Tarjeta">
                                                                                 <ItemStyle Width="30%" />
                                                                             </asp:BoundField>
-                                                                            <asp:CommandField ButtonType="Image" SelectImageUrl="~/Img/edit_16x16.png" ShowSelectButton="True" />
                                                                             <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Img/delete16x16.png" ShowDeleteButton="True" />
                                                                         </Columns>
                                                                         <RowStyle CssClass="cursor-pointer" />
@@ -497,7 +458,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label>Realiza Actividad</label>
-                                                        <input type="text" class="form-control" aria-label="..." onkeypress="return validarNum(event);" maxlength="2" id="txtAct" runat="server" placeholder="Semanal..." />
+                                                        <asp:DropDownList ID="ddlAct" runat="server" class="form-control"></asp:DropDownList>
                                                     </div>
                                                 </div>
                                             </div>
@@ -533,13 +494,16 @@
                 </asp:Panel>
             </asp:Panel>
         </div>
-        <div class="row">
-            <div class="btn-toolbar pull-right" role="toolbar">
-                <%-- <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModalMensaje"><b>Guardar</b></button>--%>
-                <asp:Button ID="Button1" runat="server" Text="Confirmar" CssClass="btn btn-primary" OnClick="btnConfirmar_Click" />
-                <br />
+        <div class="form-group">
+            <div class="row">
+                <div class="btn-toolbar pull-right">
+                    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModalMensaje"><b>Guardar</b></button>
+                    <br />
+                    <br />
+                </div>
             </div>
         </div>
+
 
 
         <!--  Modal Mensajes Confirmacion----------------------------------------------------------------------------------------------------------------->
@@ -549,14 +513,14 @@
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: #dff0d8; border-bottom-color: #d6e9c6; color: #468847;">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title"><b>Paciente</b></h4>
+                        <h4 class="modal-title"><b>PACIENTES</b></h4>
                     </div>
                     <div class="modal-body">
                         <asp:Label ID="lblMsj" runat="server" Text="Label" Font-Bold="True" class="form"></asp:Label>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar" CssClass="btn btn-primary" OnClick="btnConfirmar_Click" />
+                        <asp:Button ID="Button1" runat="server" Text="Confirmar" CssClass="btn btn-primary" OnClick="btnConfirmar_Click" />
                     </div>
                 </div>
             </div>
@@ -620,7 +584,6 @@
 
                         </asp:GridView>
                     </asp:Panel>
-                    <asp:Label ID="lbl" runat="server" Text="" ForeColor="Red" Font-Bold="True"></asp:Label>
                 </div>
             </div>
         </asp:Panel>
@@ -628,12 +591,12 @@
 
     </div>
 
-    <div class="panel-footer">
+    <%--    <div class="panel-footer">
         <div class="container">
             <br />
             ( NO preguntar y NO molestar por Boludeces ) Marca que indica que aca va el panel-footer ( NO preguntar y NO molestar por Boludeces )
         </div>
-    </div>
+    </div>--%>
 
 
     <script type="text/javascript">

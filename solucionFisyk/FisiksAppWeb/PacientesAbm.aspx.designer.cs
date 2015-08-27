@@ -40,13 +40,13 @@ namespace FisiksAppWeb {
         protected global::System.Web.UI.WebControls.Panel panelColap;
         
         /// <summary>
-        /// Control btnObrasocial.
+        /// Control btnHc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnObrasocial;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnHc;
         
         /// <summary>
         /// Control lblPaeId.
@@ -238,13 +238,13 @@ namespace FisiksAppWeb {
         protected global::System.Web.UI.WebControls.DropDownList ddlOcu;
         
         /// <summary>
-        /// Control txtAct.
+        /// Control ddlAct.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAct;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAct;
         
         /// <summary>
         /// Control panelAntMed.
@@ -274,15 +274,6 @@ namespace FisiksAppWeb {
         protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
         
         /// <summary>
-        /// Control Button1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
         /// Control lblMsj.
         /// </summary>
         /// <remarks>
@@ -292,13 +283,13 @@ namespace FisiksAppWeb {
         protected global::System.Web.UI.WebControls.Label lblMsj;
         
         /// <summary>
-        /// Control btnConfirmar.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConfirmar;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// Control msjTitulo.
@@ -344,14 +335,5 @@ namespace FisiksAppWeb {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvPac;
-        
-        /// <summary>
-        /// Control lbl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl;
     }
 }

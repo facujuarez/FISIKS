@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MPF.Master" AutoEventWireup="true" CodeBehind="ProfesionalesAbm.aspx.cs" Inherits="FisiksAppWeb.ProfesionalesAbm" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterAdmin.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="ProfesionalesAbm.aspx.cs" Inherits="FisiksAppWeb.ProfesionalesAbm" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -14,11 +14,9 @@
         function cambioTxt() {
             var largoTxt = document.getElementById('<%=txtBuscar.ClientID %>').value.length;
             if (largoTxt == 0) {
-                //alert("vacio!" + largoTxt);
                 document.getElementById('divPanelListProfesional').setAttribute('style', 'display:none');
             }
             if (largoTxt > 0) {
-                //alert("Algo!" + largoTxt);
                 document.getElementById('divPanelListProfesional').setAttribute('style', 'visibility:visible');
                 document.getElementById('divPanelPantalla').setAttribute('style', 'display:none');
             }
@@ -167,18 +165,13 @@
             return /\d/.test(String.fromCharCode(keynum));
         }
     </script>
-    <%--<style>
-        .well {
-            background: rgba(0, 0, 255, 0.9);
-        }
-    </style>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container" id="containerPantalla">
 
-        <h5><font color="blue"><b>Kinesiólogo</b></font></h5>
+        <h5><font color="#3c8dbc"><b>KINESIÓLOGOS</b></font></h5>
         <div class="form-group">
-            <input type="text" class="form-control" id="txtBuscar" name="txtBuscar" runat="server" onkeyup="cambioTxt()" placeholder="Búscar Profesional..." />
+            <input type="text" class="form-control" id="txtBuscar" name="txtBuscar" runat="server" onkeyup="cambioTxt()" placeholder="Búscar Kinesiólogos..." />
         </div>
 
         <div id="divPanelPantalla">
@@ -199,9 +192,8 @@
                                             <div class="A">
                                                 <div class="form-group">
                                                     <div class="col-md-3">
-
                                                         <label class="col-md-3 control-label" size="small">Documento</label>
-                                                        <input runat="server" type="text" id="txtDocumento" maxlength="8" onkeypress="return validarNum(event);" name="txtDocumento" class="form-control" placeholder="Documento Paciente..." />
+                                                        <input runat="server" type="text" id="txtDocumento" maxlength="8" onkeypress="return validarNum(event);" name="txtDocumento" class="form-control" placeholder="Ingresar Documento..." />
                                                         <span class="help-block" id="mensajeDocumento" />
                                                     </div>
                                                 </div>
@@ -210,7 +202,7 @@
                                                 <div class="form-group">
                                                     <div class="col-md-3">
                                                         <label class="col-md-3 control-label">Nombre</label>
-                                                        <input id="txtNombre" runat="server" type="text" maxlength="20" onkeypress="return soloLetras(event)" class="form-control" placeholder="Nombre Paciente..." />
+                                                        <input id="txtNombre" runat="server" type="text" maxlength="32" onkeypress="return soloLetras(event)" class="form-control" placeholder="Ingresar Nombre..." />
                                                         <span class="help-block" id="mensajeNombre" />
                                                     </div>
                                                 </div>
@@ -219,7 +211,7 @@
                                                 <div class="form-group">
                                                     <div class="col-md-3">
                                                         <label class="col-md-3 control-label">Apellido</label>
-                                                        <input id="txtApellido" runat="server" type="text" class="form-control" maxlength="20" onkeypress="return soloLetras(event)" placeholder="Apellido Paciente..." />
+                                                        <input id="txtApellido" runat="server" type="text" class="form-control" maxlength="32" onkeypress="return soloLetras(event)" placeholder="Ingresar Apellido..." />
                                                         <span class="help-block" id="mensajeApellido" />
                                                     </div>
                                                 </div>
@@ -227,13 +219,12 @@
                                             <div class="D">
                                                 <div class="form-group">
                                                     <div class="col-md-3">
-                                                        <%-- estado activo --%>
-                                                        <asp:Label ID="lblEstado" runat="server" Text="" Font-Bold="True">Estado Activo</asp:Label>
-                                                        <%--<label>Estado Activo</label>--%>
-                                                        <asp:DropDownList ID="ddlEstado" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlEstado_SelectedIndexChanged"></asp:DropDownList>
-                                                        <br />
+                                                        <label class="col-md-3 control-label">Télefono</label>
+                                                        <input id="txtTel" type="text" runat="server" onkeypress="return validarNum(event);" maxlength="16" class="form-control" placeholder="Ingresar Teléfono..." />
+                                                        <span class="help-block" id="mensajeTelefono" />
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -244,7 +235,8 @@
                                                 <div class="form-group">
                                                     <div class="col-md-3">
                                                         <label class="col-md-3 control-label">Fecha</label>
-                                                        <input id="txtFecNac" runat="server" type="text" class="form-control" placeholder="Fecha Nacimiento..." />
+                                                        <input id="txtFecNac" runat="server" type="text" maxlength="10" class="form-control" placeholder="Ingresar Fecha Nacimiento..." />
+                                                        <%--data-inputmask="'alias': 'dd/mm/yyyy'" data-mask />--%>
                                                         <span class="help-block" id="mensajeFecha" />
                                                     </div>
                                                 </div>
@@ -252,36 +244,21 @@
                                             <div class="B">
                                                 <div class="form-group">
                                                     <div class="col-md-3">
-                                                        <label class="col-md-3 control-label">Télefono</label>
-                                                        <input id="txtTel" type="text" runat="server" onkeypress="return validarNum(event);" maxlength="11" class="form-control" placeholder="Teléfono Paciente..." />
-                                                        <span class="help-block" id="mensajeTelefono" />
+                                                        <label class="col-md-3 control-label">Email</label>
+                                                        <input id="txtMail" type="email" runat="server" maxlength="40" class="form-control" placeholder="Ingresar Email..." />
+                                                        <span class="help-block" id="mensajeMail" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="C">
                                                 <div class="form-group">
                                                     <div class="col-md-3">
-                                                        <label class="col-md-3 control-label">Email</label>
-                                                        <input id="txtMail" type="email" runat="server" maxlength="25" class="form-control" placeholder="Email Paciente..." />
-                                                        <span class="help-block" id="mensajeMail" />
+                                                        <label class="col-md-3 control-label">Domicilio</label>
+                                                        <input id="txtDire" runat="server" class="form-control" maxlength="40" onkeypress="return sinCaracteres(event)" placeholder="Ingresar Domicilio.." />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="D">
-                                                <div class="form-group">
-                                                    <div class="col-md-3">
-                                                        <label class="col-md-3 control-label">Dirección</label>
-                                                        <input id="txtDire" runat="server" class="form-control" placeholder="Dirección Paciente..." />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <div class="bloque">
-                                        <div class="row">
-                                            <div class="A">
                                                 <div class="col-md-3">
                                                     <div class="col-md-6">
                                                         <label>Sexo</label>
@@ -296,6 +273,22 @@
                                                             <label>
                                                                 <input type="radio" runat="server" name="opciones" id="rbF" value="femenino" />Femenino</label>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <div class="bloque">
+                                        <div class="row">
+                                            <div class="A">
+                                                <div class="form-group">
+                                                    <div class="col-md-3">
+                                                        <asp:Label ID="lblEstado" runat="server" Text="" Font-Bold="True">Estado Activo</asp:Label>
+                                                        <asp:DropDownList ID="ddlEstado" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlEstado_SelectedIndexChanged"></asp:DropDownList>
+                                                        <br />
                                                     </div>
                                                 </div>
                                             </div>
@@ -317,7 +310,6 @@
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                 <div class="panel-body">
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="well well-sm">
@@ -358,25 +350,29 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <hr />
+                                                        </div>
+                                                        <hr />
+                                                        <div class="bloque">
                                                             <div class="row">
-                                                                <asp:GridView ID="gvMat" runat="server" CssClass="table table-hover table-striped" GridLines="None"
-                                                                    AutoGenerateColumns="False"
-                                                                    OnRowDeleting="MatriculaEliminarFilaGrilla"
-                                                                    Width="95%" HorizontalAlign="Center">
-                                                                    <Columns>
-                                                                        <asp:BoundField DataField="PMTID" Visible="false" />
-                                                                        <asp:BoundField DataField="PMT_MTTID" Visible="false" />
-                                                                        <asp:BoundField DataField="MTTDESCRIPCION" HeaderText="Descripción">
-                                                                            <ItemStyle Width="50%" />
-                                                                        </asp:BoundField>
-                                                                        <asp:BoundField DataField="PMTNRO" HeaderText="Número">
-                                                                            <ItemStyle Width="30%" />
-                                                                        </asp:BoundField>
-                                                                        <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Img/delete16x16.png" ShowDeleteButton="True" />
-                                                                    </Columns>
-                                                                    <RowStyle CssClass="cursor-pointer" />
-                                                                </asp:GridView>
+                                                                <div class="A">
+                                                                    <asp:GridView ID="gvMat" runat="server" CssClass="table table-hover table-striped" GridLines="None"
+                                                                        AutoGenerateColumns="False"
+                                                                        OnRowDeleting="MatriculaEliminarFilaGrilla"
+                                                                        Width="95%" HorizontalAlign="Center">
+                                                                        <Columns>
+                                                                            <asp:BoundField DataField="PMTID" Visible="false" />
+                                                                            <asp:BoundField DataField="PMT_MTTID" Visible="false" />
+                                                                            <asp:BoundField DataField="MTTDESCRIPCION" HeaderText="Descripción">
+                                                                                <ItemStyle Width="50%" />
+                                                                            </asp:BoundField>
+                                                                            <asp:BoundField DataField="PMTNRO" HeaderText="Número">
+                                                                                <ItemStyle Width="30%" />
+                                                                            </asp:BoundField>
+                                                                            <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Img/delete16x16.png" ShowDeleteButton="True" />
+                                                                        </Columns>
+                                                                        <RowStyle CssClass="cursor-pointer" />
+                                                                    </asp:GridView>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </ContentTemplate>
@@ -430,33 +426,37 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <hr />
+                                                        </div>
+                                                        <hr />
+                                                        <div class="bloque">
                                                             <div class="row">
-                                                                <asp:GridView ID="gvAgenda" runat="server" CssClass="table table-hover table-striped" GridLines="None"
-                                                                    OnRowDeleting="AgendaEliminarFilaGrilla"
-                                                                    AutoGenerateColumns="False"
-                                                                    Width="95%" HorizontalAlign="Center">
-                                                                    <Columns>
-                                                                        <asp:BoundField DataField="AGEID" HeaderText="AGEID" Visible="False"></asp:BoundField>
+                                                                <div class="A">
+                                                                    <asp:GridView ID="gvAgenda" runat="server" CssClass="table table-hover table-striped" GridLines="None"
+                                                                        OnRowDeleting="AgendaEliminarFilaGrilla"
+                                                                        AutoGenerateColumns="False"
+                                                                        Width="95%" HorizontalAlign="Center">
+                                                                        <Columns>
+                                                                            <asp:BoundField DataField="AGEID" HeaderText="AGEID" Visible="False"></asp:BoundField>
 
-                                                                        <asp:BoundField DataField="AGE_DIAID" HeaderText="AGE_DIAID" Visible="False"></asp:BoundField>
+                                                                            <asp:BoundField DataField="AGE_DIAID" HeaderText="AGE_DIAID" Visible="False"></asp:BoundField>
 
-                                                                        <asp:BoundField DataField="DIADESCRIPCION" HeaderText="Día">
-                                                                            <ItemStyle Width="40%" />
-                                                                        </asp:BoundField>
+                                                                            <asp:BoundField DataField="DIADESCRIPCION" HeaderText="Día">
+                                                                                <ItemStyle Width="40%" />
+                                                                            </asp:BoundField>
 
-                                                                        <asp:BoundField DataField="AGEHORADESDE" HeaderText="Hora Desde">
-                                                                            <ItemStyle Width="30%" />
-                                                                        </asp:BoundField>
+                                                                            <asp:BoundField DataField="AGEHORADESDE" HeaderText="Hora Desde">
+                                                                                <ItemStyle Width="30%" />
+                                                                            </asp:BoundField>
 
-                                                                        <asp:BoundField DataField="AGEHORAHASTA" HeaderText="Hora Hasta">
-                                                                            <ItemStyle Width="30%" />
-                                                                        </asp:BoundField>
+                                                                            <asp:BoundField DataField="AGEHORAHASTA" HeaderText="Hora Hasta">
+                                                                                <ItemStyle Width="30%" />
+                                                                            </asp:BoundField>
 
-                                                                        <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Img/delete16x16.png" ShowDeleteButton="True" />
-                                                                    </Columns>
-                                                                    <RowStyle CssClass="cursor-pointer" />
-                                                                </asp:GridView>
+                                                                            <asp:CommandField ButtonType="Image" DeleteImageUrl="~/Img/delete16x16.png" ShowDeleteButton="True" />
+                                                                        </Columns>
+                                                                        <RowStyle CssClass="cursor-pointer" />
+                                                                    </asp:GridView>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </ContentTemplate>
@@ -477,11 +477,6 @@
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                                 <div class="panel-body">
-                                    <%--<div class="row">
-                                        <div class="col-md-12">
-                                            <label>Especialidades:</label>
-                                        </div>
-                                    </div>--%>
                                     <div class="well well-sm">
                                         <div class="row" style="size: auto">
                                             <!-- ####################  UPDATE PANEL (Especialidades) #################### -->
@@ -499,12 +494,16 @@
 
                     </div>
                 </asp:Panel>
-                <div class="panel-footer">
-                    <div class="container">
-                        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModalMensaje"><b>Guardar</b></button>
+            </asp:Panel>
+            <div class="form-group">
+                <div class="row">
+                    <div class="btn-toolbar pull-right">
+                        <button type="button" id="btnGuardar" runat="server" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModalMensaje"><b>Guardar</b></button>
+                        <br />
+                        <br />
                     </div>
                 </div>
-            </asp:Panel>
+            </div>
         </div>
 
         <!--  Modal Mensajes Confirmacion------------------------------------------------------------------------------------------------------------->
@@ -515,7 +514,7 @@
                     <div class="modal-header" style="background-color: #dff0d8; border-bottom-color: #d6e9c6; color: #468847;">
 
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title"><b>Profesional</b></h4>
+                        <h4 class="modal-title"><b>KINESIÓLOGO</b></h4>
                     </div>
                     <div class="modal-body">
                         <asp:Label ID="lblMsj" runat="server" Text="Label" Font-Bold="True" class="form"></asp:Label>
@@ -523,28 +522,6 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                         <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar" CssClass="btn btn-primary" OnClick="btnConfirmar_Click" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--  Modal Mensajes ------------------------------------------------------------------------------------------------------------------------->
-
-        <!--  Modal Mensajes Confirmacion------------------------------------------------------------------------------------------------------------->
-        <div id="openModalMsjGrabado" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: #dff0d8; border-bottom-color: #d6e9c6; color: #468847;">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title"><b>Profesional</b></h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-md-12" style="text-align: center; padding-top: 20px;">
-                            <h3 id="msjTitulo" runat="server">El Paciente se registro de forma correcta!</h3>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        <a id="idsal" runat="server" class="btn btn-success" href="PacientesABM.aspx?e=N.aspx">Aceptar</a>
                     </div>
                 </div>
             </div>

@@ -5,13 +5,12 @@ var globalAllDay;
 
 
 function updateEvent(event, element) {
-
     if ($(this).data("qtip")) $(this).qtip("destroy");
 
     currentUpdateEvent = event;
 
+
     $("#eventId").val(event.id);
-    PageMethods.buscarPacienteId($("#eventPaciente").val(event.pae), cargarPacienteUpdate);
     $('#updatedialog').dialog('open');
     $("#eventName").val(event.title);
     $("#eventDesc").val(event.description);
@@ -19,8 +18,10 @@ function updateEvent(event, element) {
     $("#eventKine").val(event.pro);
     $("#eventOS").val(event.osp);
     $("#eventMonto").val(event.monto);
-    
-    
+
+    var idPac = $("#eventPaeId").val();
+    PageMethods.BuscarPacientePk(idPac, cargarPacienteUpdate);
+
     $("#eventStart").text("" + event.start.toLocaleString());
 
     if (event.end === null) {
@@ -32,45 +33,83 @@ function updateEvent(event, element) {
 
     return false;
 }
+
 function cargarPacienteUpdate(paciente) {
-    alert(paciente);
-    //if (paciente != null) {
 
-    //    $("#addEventPaciente").val(paciente.PaeId);
-    //    $("#addTxtNombre").val(paciente.PsnNombre);
-    //    $("#addTxtApellido").val(paciente.PsnApellido);
-    //    $("#addTxtTel").val(paciente.PsnTelefono);
+    if (paciente != null) {
 
-    //    alert("Paciente agregado");
+        $("#eventPaciente").val(paciente.PaeId);
+        $("#txtDoc").val(paciente.PsnNroDcto);
+        $("#txtNombre").val(paciente.PsnNombre);
+        $("#txtApellido").val(paciente.PsnApellido);
+        $("#txtTel").val(paciente.PsnTelefono);
 
-    //}
-    //else
-    //    alert("No se encontro el paciente");
+        PageMethods.buscarOSPaciente(paciente.PaeId, cargarObraSocialUpdate);
+    }
+    else
+        alert("No se encontro el paciente");
+}
 
+function cargarObraSocialUpdate(obrasSociales) {
 
+    var option = '';
+    if (obrasSociales != null) {
 
+        for (var i = 0; i < obrasSociales.length; i++) {
+            option += '<option value="' + obrasSociales[i].OspOsoId + "," + obrasSociales[i].OsoCoseguro + '">' + obrasSociales[i].OsoDescripcion + '</option>';
+        }
+        $('#eventOS').append(option);
+    }
+    else
+        alert("No se encontro Obra social");
+}
+
+function cargarCoseguroUpdate(selectedValue) {
+
+    var coseguro = selectedValue.split(",", 2);
+    $('#eventCoseguro').val(coseguro[1]);
 
 }
 
 function cargarPaciente(paciente) {
 
     if (paciente != null) {
-        
+
         $("#addEventPaciente").val(paciente.PaeId);
         $("#addTxtNombre").val(paciente.PsnNombre);
         $("#addTxtApellido").val(paciente.PsnApellido);
         $("#addTxtTel").val(paciente.PsnTelefono);
 
-        alert("Paciente agregado");
-        
+        PageMethods.BuscarOsPaciente(paciente.PaeId, cargarObraSocial);
+
     }
     else
         alert("No se encontro el paciente");
 
-   
-    
+}
+
+function cargarObraSocial(obrasSociales) {
+
+    var option = '';
+    if (obrasSociales != null) {
+
+        for (var i = 0; i < obrasSociales.length; i++) {
+            option += '<option value="' + obrasSociales[i].OspOsoId + "," + obrasSociales[i].OsoCoseguro + '">' + obrasSociales[i].OsoDescripcion + '</option>';
+        }
+        $('#addEventOS').append(option);
+    }
+    else
+        alert("No se encontro el paciente");
 
 }
+
+function cargarCoseguro(selectedValue) {
+
+    var coseguro = selectedValue.split(",", 2);
+    $('#addEventCoseguro').val(coseguro[1]);
+
+}
+
 
 function deleteSuccess(deleteResult) {
     alert(deleteResult);
@@ -78,7 +117,7 @@ function deleteSuccess(deleteResult) {
 
 function addSuccess(addResult) {
     // if addresult is -1, means event was not added
-    
+
     if (addResult != -1) {
         alert("Turno agregado: " + addResult);
         location.reload();
@@ -107,7 +146,7 @@ function updateEventOnDropResize(event, allDay) {
 
     var eventToUpdate = {
         id: event.id,
-        start: event.start        
+        start: event.start
     };
 
     if (event.end === null) {
@@ -177,29 +216,30 @@ function qTipText(start, end, pae, pro) {
             "<br/><strong>Fin:</strong>" +
             "<br/><br/><strong>Paciente:</strong>" + pae +
                "<br/><br/><strong>Kinesiólogo:</strong>" + pro;
-            
+
 
     return text;
 }
 
 $(document).ready(function () {
-    
+
     // update Dialog
     $('#updatedialog').dialog({
         autoOpen: false,
         width: 550,
         buttons: {
             "Actualizar": function () {
-                
+
+                var idOS = $("#eventOS").val().split(",", 2);
+
                 var eventToUpdate = {
                     id: currentUpdateEvent.id,
                     title: $("#eventName").val(),
                     description: $("#eventDesc").val(),
                     pae: $("#eventPaciente").val(),
                     pro: $("#eventKine").val(),
-                    osp: $("#eventOS").val(),
+                    osp: idOS[0],
                     monto: $("#eventMonto").val()
-
                 };
 
                 if (checkForSpecialChars(eventToUpdate.pae)
@@ -219,7 +259,7 @@ $(document).ready(function () {
                     currentUpdateEvent.pro = $("#eventKine").val();
                     currentUpdateEvent.osp = $("#eventOS").val();
                     currentUpdateEvent.monto = $("#eventMonto").val();
-                    
+
 
                     $('#calendar').fullCalendar('updateEvent', currentUpdateEvent);
                 }
@@ -242,24 +282,25 @@ $(document).ready(function () {
     $('#addDialog').dialog({
 
         autoOpen: false,
-        width: 800,
+        width: 550,
         buttons: {
             "Agregar": function () {
                 //alert("sentado :" + $("#addEventPac").val());
 
+                var idOS = $("#addEventOS").val().split(",", 2);
+
                 var eventToAdd = {
                     title: $("#addEventName").val(),
                     description: $("#addEventDesc").val(),
-                    
+
                     start: addStartDate.toJSON(),
                     end: addEndDate.toJSON(),
 
                     pae: $("#addEventPaciente").val(),
                     pro: $("#addEventKine").val(),
-                    osp: $("#addEventOS").val(),
+                    osp: idOS[0],
                     monto: $("#addEventMonto").val(),
                     allDay: isAllDay(addStartDate, addEndDate)
-                                       
                 };
 
                 if (checkForSpecialChars(eventToAdd.title)
@@ -271,14 +312,14 @@ $(document).ready(function () {
                 else {
                     //alert("sending " + eventToAdd.pac);
                     PageMethods.AddEvent(eventToAdd, addSuccess);
-                    $('#calendar').fullCalendar('renderEvent',eventToAdd,true);
+                    $('#calendar').fullCalendar('renderEvent', eventToAdd, true);
                     $('#calendar').fullCalendar('unselect');
                     $(this).dialog("close");
 
                 }
             },
-			"Cancelar": function () {$(this).dialog("close");}
-			
+            "Cancelar": function () { $(this).dialog("close"); }
+
         }
     });
 
@@ -290,10 +331,10 @@ $(document).ready(function () {
         weekday: "long", year: "numeric", month: "short",
         day: "numeric", hour: "2-digit", minute: "2-digit"
     };
-    
+
     $('#calendar').fullCalendar({
         theme: true,
-		header: {
+        header: {
             left: 'prev,next today',
             center: 'title',
             right: 'agendaWeek,agendaDay'
@@ -301,17 +342,43 @@ $(document).ready(function () {
         defaultView: 'agendaDay',
         eventClick: updateEvent,
         selectable: true,
-		selectHelper: true,
-		select: selectDate,
-	    editable: true,
-		events: "JsonResponse.ashx",
-		minTime: "07:00:00", //8am
-		maxTime: "23:00:00", //7am
-		eventDrop: eventDropped,
-		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
-		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
-		dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-		dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+        selectHelper: true,
+        select: selectDate,
+        editable: true,
+        droppable: true,
+        drop: function (date, allDay) { // this function is called when something is dropped
+
+            // retrieve the dropped element's stored Event Object
+            var originalEventObject = $(this).data('eventObject');
+
+            // we need to copy it, so that multiple events don't have a reference to the same object
+            var copiedEventObject = $.extend({}, originalEventObject);
+
+            // assign it the date that was reported
+            copiedEventObject.start = date;
+            copiedEventObject.allDay = allDay;
+            copiedEventObject.backgroundColor = $(this).css("background-color");
+            copiedEventObject.borderColor = $(this).css("border-color");
+
+            // render the event on the calendar
+            // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+            $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+
+            // is the "remove after drop" checkbox checked?
+            if ($('#drop-remove').is(':checked')) {
+                // if so, remove the element from the "Draggable Events" list
+                $(this).remove();
+            }
+
+        },
+        events: "JsonResponse.ashx",
+        minTime: "07:00:00", //8am
+        maxTime: "23:00:00", //7am
+        eventDrop: eventDropped,
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
         eventResize: eventResized,
         eventRender: function (event, element) {
             //alert(event.pac);

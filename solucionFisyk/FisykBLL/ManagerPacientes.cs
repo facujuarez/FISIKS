@@ -9,39 +9,72 @@ namespace FisykBLL
     {
         //__________________________________________________________________________
         //  Insertar Paciente
-        public static void GrabarPacienteInsert(ref PacienteDto paciente,ref String error)
+        public static void GrabarPacienteInsert(ref PacienteDto paciente, ref string error, ref int errorNro)
         {
             try
             {
-                PacienteDb.GrabarPacienteInsert(ref paciente);
+                var objPac = PacienteDb.ConsultoUnPaciente(paciente.PsnNroDcto);
+
+                if (objPac == null)
+                {
+                    PacienteDb.GrabarPacienteInsert(ref paciente);
+                }
+                else
+                {
+                    errorNro = -2;
+                    error = " Verifique el DOCUMENTO, ya existe!";
+                }
             }
             catch (Exception e)
             {
-
-                //throw e;
-                error = "Error al grabar";
+                errorNro = -1;
+                error = " Error Grabar.(Nuevo)";
             }
         }
 
         //__________________________________________________________________________
         //  Update Paciente
-        public static void GrabarPacienteUpdate(ref PacienteDto paciente)
+        public static void GrabarPacienteUpdate(ref PacienteDto paciente, ref string error, ref int errorNro)
         {
+
             try
             {
-                PacienteDb.GrabarPacienteUpdate(ref paciente);
+                var newDoc = paciente.PsnNroDcto;
+                var objPac = PacienteDb.ConsultoUnPacientePk(paciente.PaeId);
+
+                if (newDoc != objPac.PsnNroDcto)
+                {
+                    var objPacNew = PacienteDb.ConsultoUnPaciente(newDoc);
+                    if (objPacNew == null)
+                    {
+                        PacienteDb.GrabarPacienteUpdate(ref paciente);
+                    }
+                    else if (objPac.PaeId == objPacNew.PaeId)
+                    {
+                        PacienteDb.GrabarPacienteUpdate(ref paciente);
+                    }
+                    else
+                    {
+                        errorNro = -2;
+                        error = " Verifique el DOCUMENTO, ya existe!";
+                    }
+                }
+                else
+                {
+                    PacienteDb.GrabarPacienteUpdate(ref paciente);
+                }
             }
             catch (Exception e)
             {
-
-                throw e;
+                errorNro = -1;
+                error = " Error Grabar.(Editado)";
             }
         }
 
         //__________________________________________________________________________
-        //  Existe Paciente
-        public static PacienteDto ExistePaciente(string nroDoc)
-        {            
+        //  Existe Paciente DOCUMENTO
+        public static PacienteDto ExistePacienteDoc(string nroDoc)
+        {
             try
             {
                 return PacienteDb.ConsultoUnPaciente(nroDoc);
@@ -52,13 +85,14 @@ namespace FisykBLL
                 throw e;
             }
         }
+
         //__________________________________________________________________________
         //  Existe Paciente ID
-        public static PacienteDto ExistePacienteId(int idPac)
+        public static PacienteDto ExistePacientePk(int idPac)
         {
             try
             {
-                return PacienteDb.ConsultoUnPacientePorId(idPac);
+                return PacienteDb.ConsultoUnPacientePk(idPac);
             }
             catch (Exception e)
             {
@@ -66,7 +100,6 @@ namespace FisykBLL
                 throw e;
             }
         }
-
         //__________________________________________________________________________
         //  Lista Pacientes
         public static List<PacienteDto> ListPaciente()
@@ -79,7 +112,7 @@ namespace FisykBLL
             {
 
                 throw e;
-            }            
+            }
         }
     }
 }

@@ -17,7 +17,6 @@ namespace FisykBLL
             }
             catch (Exception e)
             {
-
                 throw e;
             }
         }

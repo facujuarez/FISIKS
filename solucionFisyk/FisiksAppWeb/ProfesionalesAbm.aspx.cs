@@ -13,20 +13,20 @@ namespace FisiksAppWeb
     public partial class ProfesionalesAbm : Page
     {
         private static CheckBox[] arregloCheckBoxs;
+        private static List<ProfesionalEspecialidadesDto> listaEspecialidades;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack == false)
             {
                 //-----------------------------------------------------------
-                txtDocumento.Disabled = false;
                 txtBuscar.Visible = false;
                 ddlEstado.Visible = false;
                 lblEstado.Visible = false;
                 //-----------------------------------------------------------
                 //B(busqueda) - N(nuevo)
                 var varEstado = Request.QueryString["e"];
-                lblMsj.Text = "Desea Confirmar los datos para guardar del nuevo Profesional ?";
+                lblMsj.Text = " Confirmar los datos del nuevo Kinesiólogo ?";
                 if (varEstado == "B")
                 {
                     txtBuscar.Visible = true;
@@ -41,11 +41,11 @@ namespace FisiksAppWeb
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "ocultarFormProfesional", script, true);
 
                     btnConfirmar.Visible = false;
-                    txtDocumento.Disabled = true;
 
-                    lblMsj.Text = "Desea Confirmar la edición de los datos del Profecional ?";
+                    lblMsj.Text = " Confirmar la edición del Kinesiólogo ?";
                 }
                 //-----------------------------------------------------------
+                listaEspecialidades = new List<ProfesionalEspecialidadesDto>();
                 CargarGrilla();
                 CargarDatosIniciales();
                 AgendaIniFila();
@@ -96,7 +96,7 @@ namespace FisiksAppWeb
             #region Matriculas --------------------------------------
             if (ViewState["DadaTableMat"] != null)
             {
-                var dtMat = (DataTable) ViewState["DadaTableMat"];
+                var dtMat = (DataTable)ViewState["DadaTableMat"];
                 var listaMatricula = new List<ProfesionalMatriculaDto>();
                 foreach (DataRow dtRow in dtMat.Rows)
                 {
@@ -118,26 +118,14 @@ namespace FisiksAppWeb
 
             #region Especialidades ----------------------------------
 
-            var listaEsp = new List<ProfesionalEspecialidadesDto>();
-            for (var i = 0; i < arregloCheckBoxs.Count(); i++)
-            {
-                if (arregloCheckBoxs[i].Checked)
-                {
-                    var especialidad = new ProfesionalEspecialidadesDto();
-                    var varEsp = arregloCheckBoxs[i].ID;
-                    varEsp = varEsp.Replace("ContentPlaceHolder1_ckEsp", "");
-                    especialidad.PepEpcId = Convert.ToInt32(varEsp);
-                    listaEsp.Add(especialidad);
-                }
-            }
-            profesional.ProListEspecialidades = listaEsp;
+            profesional.ProListEspecialidades = listaEspecialidades;
 
             #endregion
 
             #region Agenda ------------------------------------------
             if (ViewState["DataTableAge"] != null)
             {
-                var dtAge = (DataTable) ViewState["DataTableAge"];
+                var dtAge = (DataTable)ViewState["DataTableAge"];
                 var listaAgenda = new List<AgendaDto>();
                 foreach (DataRow dtRow in dtAge.Rows)
                 {
@@ -156,9 +144,9 @@ namespace FisiksAppWeb
             var varEstado = Request.QueryString["e"];
             if (varEstado == "B")
             {
-                profesional.ProPsnId = int.Parse(ViewState["IdPersona"].ToString());
-                profesional.ProId = int.Parse(ViewState["IdProfesional"].ToString());
-                profesional.ProPsnId = profesional.PsnId;
+                if (lblProId != null) profesional.ProId = Convert.ToInt32(lblProId.Text);
+                if (lblPsnId != null) profesional.PsnId = Convert.ToInt32(lblPsnId.Text);
+
                 var opcionSeleccionada = ddlEstado.SelectedItem.ToString();
                 if (opcionSeleccionada == "NO")
                     profesional.ProActivo = "N";
@@ -193,13 +181,41 @@ namespace FisiksAppWeb
             }
 
             #endregion
-            
+
             #region  Profesional ------------------------------------
 
             lblProId.Text = profesional.ProId.ToString();
 
             #endregion
-            
+
+            #region Especialidad ---------------------------
+
+            for (var i = 0; i < arregloCheckBoxs.Count(); i++)
+            {
+                arregloCheckBoxs[i].Checked = false;
+            }
+
+            var listaespecialPeorfesional = ManagerEspecialidades.ListEspecialidadProfesional(profesional.ProId);
+            for (var i = 0; i < arregloCheckBoxs.Count(); i++)
+            {
+                foreach (var le in listaespecialPeorfesional)
+                {
+                    var varEsp = arregloCheckBoxs[i].ID;
+                    varEsp = varEsp.Substring(varEsp.Length - 2, 2);
+
+                    if (Convert.ToInt32(varEsp) == le.EspId)
+                    {
+                        arregloCheckBoxs[i].Checked = true;
+
+                        var especial = new ProfesionalEspecialidadesDto();
+                        especial.PepEpcId = Convert.ToInt32(varEsp);
+                        listaEspecialidades.Add(especial);
+                    }
+                }
+            }
+
+            #endregion
+
             #region Matricula --------------------------------------
             try
             {
@@ -302,41 +318,27 @@ namespace FisiksAppWeb
             }
         }
 
-        private void BloquearCampos()
-        {
-            txtApellido.Disabled = true;
-            txtDire.Disabled = true;
-            txtFecNac.Disabled = true;
-            txtNombre.Disabled = true;
-            txtTel.Disabled = true;
-            rbF.Disabled = true;
-            rbM.Disabled = true;
-        }
-
-        private void DesbloquearCampos()
-        {
-            txtApellido.Disabled = false;
-            txtDire.Disabled = false;
-            txtFecNac.Disabled = false;
-            txtNombre.Disabled = false;
-            txtTel.Disabled = false;
-            rbF.Disabled = false;
-            rbM.Disabled = false;
-        }
-
-        #region Cargar Datos Iniciales
+        #region ----------- Cargar Datos Iniciales -------------
 
         private void CargarGrilla()
         {
-            gvPro.DataSource = ManagerProfesional.ListProfesional();
-            gvPro.DataBind();
-            if (gvPro.Rows.Count > 0)
+            try
             {
-                gvPro.UseAccessibleHeader = true;
-                gvPro.HeaderRow.TableSection = TableRowSection.TableHeader;
+                gvPro.DataSource = ManagerProfesional.ListProfesional();
+                gvPro.DataBind();
+                if (gvPro.Rows.Count > 0)
+                {
+                    gvPro.UseAccessibleHeader = true;
+                    gvPro.HeaderRow.TableSection = TableRowSection.TableHeader;
+                }
+            }
+            catch (Exception e)
+            {
+                var script = "showAlert('Error al cargar Grilla Kinesiologo','2');";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
             }
         }
-         
+
         private void CargarDatosIniciales()
         {
             //________________________________________________________________________________________________________
@@ -350,12 +352,21 @@ namespace FisiksAppWeb
             //  Cargar  Lista de Horas - Hora hasta
             ddlHoraHasta.DataSource = PublicData.ArrayListaDeHoras();
             ddlHoraHasta.DataBind();
-          
+
+            //________________________________________________________________________________________________________
             //  Cargar Tipo de Matriculas
-            ddlMat.DataSource = ManagerMatriculaTipo.ListMatriculaTipo();
-            ddlMat.DataValueField = "mttId";
-            ddlMat.DataTextField = "mttDescripcion";
-            ddlMat.DataBind();
+            try
+            {
+                ddlMat.DataSource = ManagerMatriculaTipo.ListMatriculaTipo();
+                ddlMat.DataValueField = "mttId";
+                ddlMat.DataTextField = "mttDescripcion";
+                ddlMat.DataBind();
+            }
+            catch (Exception e)
+            {
+                var script = "showAlert('Error al cargar Tipos de Matriculas.','2');";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
+            }
             //________________________________________________________________________________________________________
             //  Cargar Check Especialidades profesionales
             ddlEstado.Items.Add("SI");
@@ -364,50 +375,90 @@ namespace FisiksAppWeb
             //________________________________________________________________________________________________________
             //  Cargar Check Especialidades
             CargarEspecialidades();
-
         }
 
         private void CargarEspecialidades()
         {
-            var listEsp = ManagerEspecialidades.ListEspecialidades();
-            arregloCheckBoxs = new CheckBox[listEsp.Count];
-            var nroPos = 0;
-            foreach (var antemed in listEsp)
+            try
             {
-                var ckBoxs = new CheckBox();
-                ckBoxs.ID = "ckEsp" + antemed.EspId;
-                ckBoxs.Text = " " + antemed.EspDescripcion;
-                ckBoxs.AutoPostBack = true;
-                ckBoxs.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
-                arregloCheckBoxs[nroPos] = ckBoxs;
-                Form.Controls.Add(ckBoxs);
-                PlaceHolder1.Controls.Add(new LiteralControl("<div class='col-md-4'>"));
-                PlaceHolder1.Controls.Add(ckBoxs);
-                PlaceHolder1.Controls.Add(new LiteralControl("</div>"));
+                var listEsp = ManagerEspecialidades.ListEspecialidades();
+                arregloCheckBoxs = new CheckBox[listEsp.Count];
+                var nroPos = 0;
+                foreach (var espcial in listEsp)
+                {
+                    var ckBoxs = new CheckBox();
+                    var espid = espcial.EspId.ToString();
+                    if (espid.Length == 1)
+                    {
+                        espid = "0" + espid;
+                    }
+                    ckBoxs.ID = "ckEsp" + espid.ToString();
+                    ckBoxs.Text = " " + espcial.EspDescripcion.ToString();
+                    ckBoxs.AutoPostBack = true;
+                    ckBoxs.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
+                    arregloCheckBoxs[nroPos] = ckBoxs;
+                    Form.Controls.Add(ckBoxs);
 
-                var trigger = new AsyncPostBackTrigger();
-                trigger.ControlID = ckBoxs.ID;
-                trigger.EventName = "CheckedChanged";
-                UpdatePanelEspecialidades.Triggers.Add(trigger);
+                    PlaceHolder1.Controls.Add(new LiteralControl("<div class='col-md-4'>"));
+                    PlaceHolder1.Controls.Add(ckBoxs);
+                    PlaceHolder1.Controls.Add(new LiteralControl("</div>"));
 
-                nroPos++;
+                    var trigger = new AsyncPostBackTrigger();
+                    trigger.ControlID = ckBoxs.ID;
+                    trigger.EventName = "CheckedChanged";
+                    UpdatePanelEspecialidades.Triggers.Add(trigger);
+
+                    nroPos++;
+                }
+            }
+            catch (Exception e)
+            {
+                var script = "showAlert('Error al cargar las Especialidades','2');";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
             }
         }
 
         protected void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            //write the client id of the control that triggered the event
-            Response.Write(((CheckBox)sender).ClientID);
-            var ckPant = (CheckBox)sender;
-            ckPant.ID = ((CheckBox)sender).ClientID;
-            var i = 0;
-            foreach (var ck in arregloCheckBoxs)
+            var chk = (CheckBox)sender;
+            chk.ID = ((CheckBox)sender).ClientID;
+            var especial = new ProfesionalEspecialidadesDto();
+            var varEsp = chk.ID;
+            varEsp = varEsp.Substring(varEsp.Length - 2, 2);
+            especial.PepEpcId = Convert.ToInt32(varEsp);
+            if (chk.Checked)
             {
-                if (ckPant.Text == ck.Text)
+                var flag = new int();
+                flag = 0;
+                if (listaEspecialidades == null)
                 {
-                    arregloCheckBoxs[i].Checked = true;
+                    listaEspecialidades.Add(especial);
                 }
-                i++;
+                else
+                {
+                    foreach (ProfesionalEspecialidadesDto especialidad in listaEspecialidades)
+                    {
+                        if (especialidad.PepEpcId == especial.PepEpcId)
+                        {
+                            flag = 1;
+                        }
+                    }
+                    if (flag == 0)
+                    {
+                        listaEspecialidades.Add(especial);
+                    }
+                }
+            }
+            else
+            {
+                foreach (ProfesionalEspecialidadesDto especialidad in listaEspecialidades)
+                {
+                    if (especialidad.PepEpcId == especial.PepEpcId)
+                    {
+                        listaEspecialidades.Remove(especial);
+                        break;
+                    }
+                }
             }
         }
 
@@ -425,7 +476,7 @@ namespace FisiksAppWeb
             dtAgenda.Columns.Add(new DataColumn("AGEHORADESDE", typeof(string)));
             dtAgenda.Columns.Add(new DataColumn("AGEHORAHASTA", typeof(string)));
             dtAgenda.Columns.Add(new DataColumn("AGE_PROID", typeof(string)));
-            
+
             ViewState["DataTableAge"] = dtAgenda;
 
             gvAgenda.DataSource = dtAgenda;
@@ -704,7 +755,7 @@ namespace FisiksAppWeb
             }
             else
             {
-                var script = "showAlert('Advertencia!','" + msj + "','3');";
+                var script = "showAlert(" + msj + ",'3');";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
             }
         }
@@ -800,47 +851,105 @@ namespace FisiksAppWeb
 
         #endregion
 
+        private void Limpiar()
+        {
+            lblProId.Text = null;
+            lblPsnId.Text = null;
+
+            txtDocumento.Value = null;
+            txtNombre.Value = null;
+            txtApellido.Value = null;
+            txtFecNac.Value = null;
+            txtTel.Value = null;
+            txtDire.Value = null;
+            txtMail.Value = null;
+            rbM.Checked = true;
+
+            AgendaIniFila();
+            MatriculaIniFila();
+
+            ddlMat.SelectedIndex = 0;
+            txtNro.Value = null;
+            ddlDias.SelectedIndex = 0;
+            ddlHoraDesde.SelectedIndex = 0;
+            ddlHoraHasta.SelectedIndex = 0;
+
+            ddlEstado.SelectedIndex = 0;
+
+            listaEspecialidades.Clear();
+
+            for (var i = 0; i < arregloCheckBoxs.Count(); i++)
+            {
+                arregloCheckBoxs[i].Checked = false;
+            }
+
+            CargarGrilla();
+        }
+
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
-                var personaProfesional = new ProfesionalDto();
-                ObtenerDatosPantalla(personaProfesional);
+                string error = null; string msj = null; int errorNro = 0;
+                var profesional = new ProfesionalDto();
+                ObtenerDatosPantalla(profesional);
                 var varEstado = Request.QueryString["e"];
                 if (varEstado == "N")
                 {
-                    ManagerProfesional.GrabarProfesionalInsert(ref personaProfesional);
-                    Response.Redirect("ProfesionalesABM.aspx?e=N");
+                    ManagerProfesional.GrabarProfesionalInsert(ref profesional, ref error, ref errorNro);
+                    msj = "Kinesiólogo Guardado.";
                 }
                 else if (varEstado == "B")
                 {
-                    if (ViewState["Bloquear"].ToString() == "Si")
+                    ManagerProfesional.GrabarProfesionalUpdate(ref profesional, ref error, ref errorNro);
+                    msj = "Kinesiólogo Actualizado.";
+                }
+                if (error == null)
+                {
+                    var script = "showAlert('" + msj + "','1');";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
+                    Limpiar();
+                    var script2 = "ocultarFormProfesional();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "ocultarFormPaciente", script2, true);
+                }
+                else
+                {
+                    if (errorNro == -2)
                     {
-                        ManagerProfesional.BloquearProfesional(int.Parse(ViewState["IdProfesional"].ToString()));
+                        var script = "showAlert('" + error + "','3');";
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
                     }
-                    else
+                    if (errorNro == -1)
                     {
-                        #region Busco los Id de Matriculas Existentes para el Update. Si no exite es una matricula Nueva ----
-                        List<MatriculaDto> matProAnt;
-                        matProAnt = (List<MatriculaDto>)Session["listMatricula"];
-                        //foreach (MatriculaDto matPro in personaProfesional.ProListMatriculas)
-                        //{
-                        //    foreach (MatriculaDto matAnt in matProAnt)
-                        //    {
-                        //        if (matAnt.MtrTipo.MttDescripcion == matPro.MtrTipo.MttDescripcion)
-                        //        {
-                        //            matPro.MtrId = matAnt.MtrId;
-                        //        }
-                        //    }
-                        //}
-                        #endregion
-
-                        ManagerProfesional.GrabarProfesionalUpdate(ref personaProfesional);
+                        var script = "showAlert('" + error + "','2');";
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
                     }
-                    Response.Redirect("ProfesionalesABM.aspx?e=B");
                 }
             }
         }
 
+
+
+        private void BloquearCampos()
+        {
+            txtApellido.Disabled = true;
+            txtDire.Disabled = true;
+            txtFecNac.Disabled = true;
+            txtNombre.Disabled = true;
+            txtTel.Disabled = true;
+            rbF.Disabled = true;
+            rbM.Disabled = true;
+        }
+
+        private void DesbloquearCampos()
+        {
+            txtApellido.Disabled = false;
+            txtDire.Disabled = false;
+            txtFecNac.Disabled = false;
+            txtNombre.Disabled = false;
+            txtTel.Disabled = false;
+            rbF.Disabled = false;
+            rbM.Disabled = false;
+        }
     }
 }

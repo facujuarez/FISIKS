@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FisiksAppWeb.Entities;
 using FisykDAL;
+using FisykDAL.DAL;
 
 namespace FisykBLL
 {
@@ -11,32 +12,69 @@ namespace FisykBLL
         //  Lista de Turnos
         public static List<TurneroDto> ListTurnero(DateTime inicio, DateTime fin)
         {
-            return TurneroDb.ListaTurnos(inicio, fin);
-            
+            try
+            {
+                return TurneroDb.ListaTurnos(inicio, fin);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
         //__________________________________________________________________________
         //  Update de Turnos (Others)
         public static void UpdateTurnero(TurneroDto turno)
         {
-            TurneroDb.UpdateTurno(turno);
+            try
+            {
+                TurneroDb.UpdateTurno(turno);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
+
         //__________________________________________________________________________
         //  Update de Turnos (Times)
         public static void UpdateTurneroTime(TurneroDto turno)
         {
-            TurneroDb.UpdateTurnoTime(turno);
+            try
+            {
+                TurneroDb.UpdateTurnoTime(turno);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
+
         //__________________________________________________________________________
         //  Eliminar un Turnos
         public static void DeleteTurnero(int idTurno)
         {
-            TurneroDb.DeleteTurno(idTurno);
+            try
+            {
+                TurneroDb.DeleteTurno(idTurno);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
+
         //__________________________________________________________________________
         //  Insertar Paciente
         public static int InsertaTurnero(TurneroDto turno)
         {
-            return TurneroDb.InsertTurno(turno);
+            try
+            {
+                return TurneroDb.InsertTurno(turno);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

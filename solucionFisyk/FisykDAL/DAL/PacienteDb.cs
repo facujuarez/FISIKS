@@ -80,24 +80,25 @@ namespace FisykDAL.DAL
                     //     Consulta Text
                     //    ------------------------------------------------------------------------------
 
-                    var querystring = "INSERT INTO PACIENTEOS ( OSP_PAEID,    OSP_OSOID,   OSPNROSOCIO) " +
-                                                        " VALUES (:iOSP_PAEID, :iOSP_OSOID, :iOSPNROSOCIO) ";
-                    cmdObSoc = new OracleCommand(querystring)
+                    //var querystring = "INSERT INTO PACIENTEOS ( OSP_PAEID,    OSP_OSOID,   OSPNROSOCIO) " +
+                    //                                    " VALUES (:iOSP_PAEID, :iOSP_OSOID, :iOSPNROSOCIO) ";
+                    //cmdObSoc = new OracleCommand(querystring)
+                    //{
+                    //    Connection = con,
+                    //    CommandType = CommandType.Text
+                    //};
+                    cmdObSoc = new OracleCommand("PRC_PACIENTEOS_INSERT")
                     {
-                        Connection = con,
-                        CommandType = CommandType.Text
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = con
                     };
-
-                    cmdObSoc.Parameters.Add(CreateParameter(":iOSP_PAEID", paciente.PaeId));//NUMBER
-                    cmdObSoc.Parameters.Add(CreateParameter(":iOSP_OSOID", oPos.OspOsoId));//NUMBER
-                    cmdObSoc.Parameters.Add(new OracleParameter(":iOSPNROSOCIO", oPos.OspNroSocio));//NUMBER        
+                    
+                    cmdObSoc.Parameters.Add(CreateParameter("iOSP_PAEID", paciente.PaeId));//NUMBER
+                    cmdObSoc.Parameters.Add(CreateParameter("iOSP_OSOID", oPos.OspOsoId));//NUMBER
+                    cmdObSoc.Parameters.Add(new OracleParameter("iOSPNROSOCIO", oPos.OspNroSocio));//NUMBER        
 
                     cmdObSoc.Transaction = tran;
                     cmdObSoc.ExecuteNonQuery();//EJECUTO CONSULTA
-
-                    //cmdObSoc = new OracleCommand("PRC_PACIENTEOS_INSERT");
-                    //cmdObSoc.CommandType = CommandType.StoredProcedure;
-                    //cmdObSoc.Connection = con;
                 }
 
                 #endregion
@@ -203,32 +204,34 @@ namespace FisykDAL.DAL
 
                 #endregion
 
-                #region INSERT OBRAS SOCIALES -------------------------------------------------------------
+                #region UPDATE OBRAS SOCIALES -------------------------------------------------------------
 
-                //OracleCommand cmdObSoc = null;
-                //foreach (PacienteOsDto oPos in paciente.PaeListObraSocial)
-                //{
-                //    //    ------------------------------------------------------------------------------
-                //    //     Consulta Text
-                //    //    ------------------------------------------------------------------------------
+                //---------------------------------------------------------
+                // Elimino los registros para un paciente en particular
+                var cmdObSoc = new OracleCommand("PRC_PACIENTEOS_DELETE")
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    Connection = con
+                };
+                cmdObSoc.Parameters.Add(CreateParameter("iOSP_PAEID", paciente.PaeId));//NUMBER
+                cmdObSoc.Transaction = tran;
+                cmdObSoc.ExecuteNonQuery();//EJECUTO CONSULTA
+                //---------------------------------------------------------
+                foreach (var oPos in paciente.PaeListObraSocial)
+                {
+                    cmdObSoc = new OracleCommand("PRC_PACIENTEOS_INSERT")
+                    {
+                        CommandType = CommandType.StoredProcedure,
+                        Connection = con
+                    };
 
-                //    string querystring = "INSERT INTO PACIENTEOS ( OSP_PAEID,    OSP_OSOID,   OSPNROSOCIO) " +
-                //                                        " VALUES (:iOSP_PAEID, :iOSP_OSOID, :iOSPNROSOCIO) ";
-                //    cmdObSoc = new OracleCommand(querystring);
-                //    cmdObSoc.Connection = con;
-                //    cmdObSoc.CommandType = CommandType.Text;
+                    cmdObSoc.Parameters.Add(CreateParameter("iOSP_PAEID", paciente.PaeId));//NUMBER
+                    cmdObSoc.Parameters.Add(CreateParameter("iOSP_OSOID", oPos.OspOsoId));//NUMBER
+                    cmdObSoc.Parameters.Add(new OracleParameter("iOSPNROSOCIO", oPos.OspNroSocio));//NUMBER        
 
-                //    cmdObSoc.Parameters.Add(CreateParameter(":iOSP_PAEID", paciente.PaeId));//NUMBER
-                //    cmdObSoc.Parameters.Add(CreateParameter(":iOSP_OSOID", oPos.OspOsoId));//NUMBER
-                //    cmdObSoc.Parameters.Add(new OracleParameter(":iOSPNROSOCIO", oPos.OspNroSocio));//NUMBER        
-
-                //    cmdObSoc.Transaction = tran;
-                //    cmdObSoc.ExecuteNonQuery();//EJECUTO CONSULTA
-
-                //    //cmdObSoc = new OracleCommand("PRC_PACIENTEOS_INSERT");
-                //    //cmdObSoc.CommandType = CommandType.StoredProcedure;
-                //    //cmdObSoc.Connection = con;
-                //}
+                    cmdObSoc.Transaction = tran;
+                    cmdObSoc.ExecuteNonQuery();//EJECUTO CONSULTA
+                }
 
                 #endregion
 
@@ -270,11 +273,11 @@ namespace FisykDAL.DAL
                 cmdPac.Connection.Close();//CERRAR
                 cmdPac.Connection.Dispose();
 
-                //if (cmdObSoc != null)
-                //{
-                //    cmdObSoc.Connection.Close();//CERRAR
-                //    cmdObSoc.Connection.Dispose();
-                //}
+                if (cmdObSoc != null)
+                {
+                    cmdObSoc.Connection.Close();//CERRAR
+                    cmdObSoc.Connection.Dispose();
+                }
             }
             catch (Exception e)
             {
@@ -284,7 +287,7 @@ namespace FisykDAL.DAL
         }
 
         //________________________________________________________________________________________________________
-        // Consulto un Paciente
+        // Consulto un Paciente DOCUMENTO
         public static PacienteDto ConsultoUnPaciente(string nroDoc)
         {
             try
@@ -296,28 +299,25 @@ namespace FisykDAL.DAL
             }
             catch (Exception e)
             {
-
                 throw e;
             }
-
         }
-            //________________________________________________________________________________________________________
-        // Consulto un Paciente por id
-        public static PacienteDto ConsultoUnPacientePorId(int idPac)
+       
+        //________________________________________________________________________________________________________
+        // Consulto un Paciente ID
+        public static PacienteDto ConsultoUnPacientePk(int paeId)
         {
             try
             {
                 var cmd = GetDbSprocCommand("PRC_PACIENTE_PK");
-                cmd.Parameters.Add(CreateParameter("iPAEID", idPac));//VARCHAR
+                cmd.Parameters.Add(CreateParameter("iPAEID", paeId));//VARCHAR
                 cmd.Parameters.Add("oCursor", OracleDbType.RefCursor, ParameterDirection.Output);//CURSOR
                 return GetSingleDto<PacienteDto>(ref cmd);
             }
             catch (Exception e)
             {
-
                 throw e;
             }
-
         }
 
         //________________________________________________________________________________________________________

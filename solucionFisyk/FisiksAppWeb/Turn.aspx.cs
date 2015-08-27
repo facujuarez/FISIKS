@@ -133,42 +133,42 @@ namespace FisiksAppWeb
 
 
         [System.Web.Services.WebMethod(true)]
-        public static PacienteDto buscarPac(String doc)
+        public static PacienteDto BuscarPacienteDoc(String doc)
         {
             if (!string.IsNullOrEmpty(doc))
             {
                 PacienteDto pac = new PacienteDto();
-                pac = ManagerPacientes.ExistePaciente(doc);
-
+                pac = ManagerPacientes.ExistePacienteDoc(doc);
+                
                 return pac;
             }
             else { return null; }
-
+            
         }
+
+
         [System.Web.Services.WebMethod(true)]
-        public static PacienteDto buscarPacienteId(int idPae)
+        public static PacienteDto BuscarPacientePk(int idPae)
         {
             if (idPae != 0)
             {
                 PacienteDto pac = new PacienteDto();
-                pac = ManagerPacientes.ExistePacienteId(idPae);
+                pac = ManagerPacientes.ExistePacientePk(idPae);
 
                 return pac;
             }
             else { return null; }
 
         }
-        private void Limpiar()
-        { }
 
         [System.Web.Services.WebMethod(true)]
-        public static List<PacienteOsDto> buscarOSPaciente(int idPac)
+        public static List<PacienteOsDto> BuscarOsPaciente(int idPac)
         {
             List<PacienteOsDto> listaObraSoc = new List<PacienteOsDto>();
             try
             {
                 listaObraSoc = ManagerObraSociales.ListObraSocialesPaciente(idPac);
-                
+
             }
             catch (Exception e)
             {

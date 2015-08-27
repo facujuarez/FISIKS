@@ -53,27 +53,27 @@ C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykDA
 C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykDAL\obj\Debug\FisykDAL.csprojResolveAssemblyReference.cache
 C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykDAL\obj\Debug\FisykDAL.dll
 C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykDAL\obj\Debug\FisykDAL.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDAL\bin\Debug\FisykDAL.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDAL\bin\Debug\FisykDAL.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDAL\bin\Debug\FisykDTO.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDAL\bin\Debug\Oracle.DataAccess.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDAL\bin\Debug\FisykDTO.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDAL\obj\Debug\FisykDAL.csprojResolveAssemblyReference.cache
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDAL\obj\Debug\FisykDAL.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDAL\obj\Debug\FisykDAL.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDAL\bin\Debug\FisykDAL.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDAL\bin\Debug\FisykDAL.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDAL\bin\Debug\FisykDTO.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDAL\bin\Debug\Oracle.DataAccess.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDAL\bin\Debug\FisykDTO.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDAL\obj\Debug\FisykDAL.csprojResolveAssemblyReference.cache
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDAL\obj\Debug\FisykDAL.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDAL\obj\Debug\FisykDAL.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisykDAL\bin\Debug\FisykDAL.dll
-D:\Fisiks\25-08 -solucionFisyk\FisykDAL\bin\Debug\FisykDAL.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisykDAL\bin\Debug\FisykDTO.dll
-D:\Fisiks\25-08 -solucionFisyk\FisykDAL\bin\Debug\Oracle.DataAccess.dll
-D:\Fisiks\25-08 -solucionFisyk\FisykDAL\bin\Debug\FisykDTO.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisykDAL\obj\Debug\FisykDAL.csprojResolveAssemblyReference.cache
-D:\Fisiks\25-08 -solucionFisyk\FisykDAL\obj\Debug\FisykDAL.dll
-D:\Fisiks\25-08 -solucionFisyk\FisykDAL\obj\Debug\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisykDAL\bin\Debug\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisykDAL\bin\Debug\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisykDAL\bin\Debug\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisykDAL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisykDAL\bin\Debug\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisykDAL\obj\Debug\FisykDAL.csprojResolveAssemblyReference.cache
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisykDAL\obj\Debug\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisykDAL\obj\Debug\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDAL\obj\Debug\FisykDAL.csprojResolveAssemblyReference.cache
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDAL\bin\Debug\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDAL\bin\Debug\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDAL\bin\Debug\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDAL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDAL\bin\Debug\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDAL\obj\Debug\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDAL\obj\Debug\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDAL\bin\Debug\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDAL\bin\Debug\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDAL\bin\Debug\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDAL\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDAL\bin\Debug\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDAL\obj\Debug\FisykDAL.csprojResolveAssemblyReference.cache
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDAL\obj\Debug\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDAL\obj\Debug\FisykDAL.pdb

@@ -104,6 +104,7 @@
     <Content Include="dist\css\skins\skin-yellow.min.css" />
     <Content Include="dist\css\skins\_all-skins.css" />
     <Content Include="dist\css\skins\_all-skins.min.css" />
+    <Content Include="dist\img\alf.jpg" />
     <Content Include="dist\img\avatar.png" />
     <Content Include="dist\img\avatar04.png" />
     <Content Include="dist\img\avatar2.png" />
@@ -178,8 +179,7 @@
     <Content Include="LibsCalendar\jquery\jquery-ui-timepicker-addon-1.4.5.js" />
     <Content Include="LibsCalendar\jquery\jquery.qtip-2.2.0.js" />
     <Content Include="LibsCalendar\jquery\moment-2.8.1.min.js" />
-    <Content Include="LibsCalendar\scripts\scriptCalendario4.js" />
-    <Content Include="LibsCalendar\scripts\scriptCalendario3.js" />
+    <Content Include="LibsCalendar\scripts\scriptCalendario.js" />
     <Content Include="PacientesAbm.aspx" />
     <Content Include="plugins\bootstrapValidator\bootstrapValidator.min.css" />
     <Content Include="plugins\bootstrapValidator\bootstrapValidator.min.js" />
@@ -187,7 +187,6 @@
     <Content Include="plugins\DateTimePicker\bootstrap-datetimepicker.min.js" />
     <Content Include="plugins\DateTimePicker\locale\es.js" />
     <Content Include="plugins\quickSearch\jquery.quicksearch.js" />
-    <Content Include="MPF.Master" />
     <Content Include="packages.config" />
     <Content Include="plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="plugins\bootstrap-slider\slider.css" />
@@ -999,13 +998,6 @@
     </Compile>
     <Compile Include="MasterAdmin.Master.designer.cs">
       <DependentUpon>MasterAdmin.Master</DependentUpon>
-    </Compile>
-    <Compile Include="MPF.Master.cs">
-      <DependentUpon>MPF.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MPF.Master.designer.cs">
-      <DependentUpon>MPF.Master</DependentUpon>
     </Compile>
     <Compile Include="PacientesAbm.aspx.cs">
       <DependentUpon>PacientesAbm.aspx</DependentUpon>

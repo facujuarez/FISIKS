@@ -20,26 +20,24 @@ namespace FisiksAppWeb
             if (Page.IsPostBack == false)
             {
                 //-----------------------------------------------------------
-                //lblHC.Disabled = true;
-                txtDocumento.Disabled = false;
+                btnHc.Visible = false;
                 txtBuscar.Visible = false;
+                //txtFecNac.Value = "01/01/2000";
                 //-----------------------------------------------------------
                 //B(busqueda) - N(nuevo)
                 var varEstado = Request.QueryString["e"];
-                lblMsj.Text = "Desea Confirmar los datos para guardar del nuevo paciente ?";
+                lblMsj.Text = " Confirma los datos del nuevo Paciente ?";
 
                 if (varEstado == "B")
                 {
                     txtBuscar.Visible = true;
+                    //btnGuardar.Visible = false;//////////////////////////////////////////////////////////////////////////////////////////////////
+                    btnHc.Visible = true;
 
                     var script = "ocultarFormPaciente();";
                     ScriptManager.RegisterStartupScript(this, typeof(Page), "ocultarFormPaciente", script, true);
-
-                    btnConfirmar.Visible = false;
-
-                    txtDocumento.Disabled = true;
-
-                    lblMsj.Text = "Desea Confirmar la edición de los datos del paciente ?";
+                    
+                    lblMsj.Text = " Confirmar la edición del Paciente ?";
                 }
                 //-----------------------------------------------------------
                 listaAntMed = new List<PacienteAntecedentesDto>();
@@ -106,16 +104,8 @@ namespace FisiksAppWeb
             paciente.PaeTensionMax = ddlMax.SelectedIndex != 0 ? Convert.ToInt16(ddlMax.SelectedValue) : 0;
             paciente.PaeTensionMin = ddlMin.SelectedIndex != 0 ? Convert.ToInt16(ddlMin.SelectedValue) : 0;
 
-
-                //paciente.PaeActFisica = "S";
-                //if (!string.IsNullOrEmpty(txtAct.Value))
-                //{
-                //    paciente.PaePeriodicidad = Convert.ToInt16(txtAct.Value);
-                //}
-         
-           
-
             paciente.PaeOcuId = ddlOcu.SelectedIndex != 0 ? Convert.ToInt16(ddlOcu.SelectedValue) : 0;
+            paciente.PaePeriodicidad = ddlAct.SelectedIndex != 0 ? Convert.ToInt16(ddlAct.SelectedValue) : 0;
 
             #endregion
 
@@ -139,23 +129,6 @@ namespace FisiksAppWeb
 
             #region Antecedentes Medicos ---------------------------
 
-            //var listaAntMed = new List<PacienteAntecedentesDto>();
-            //foreach (Control c in PlaceHolder1.Controls)
-            //{
-            //    if (c.GetType() == typeof(CheckBox))
-            //    {
-            //        using (CheckBox chk = (CheckBox)c)
-            //        {
-            //            if (chk.Checked) { 
-            //            var anteMed = new PacienteAntecedentesDto();
-            //            var varAteMed = chk.ID;
-            //            varAteMed = varAteMed.Replace("ContentPlaceHolder1_ckAntMed", "");
-            //            anteMed.ApaAmeId = Convert.ToInt32(varAteMed);
-            //            listaAntMed.Add(anteMed);
-            //            }
-            //        }
-            //    }
-            //}
             paciente.PaeListAntecedentes = listaAntMed;
 
             #endregion
@@ -177,7 +150,7 @@ namespace FisiksAppWeb
             txtDocumento.Value = paciente.PsnNroDcto;
             txtNombre.Value = paciente.PsnNombre;
             txtApellido.Value = paciente.PsnApellido;
-            txtFecNac.Value = paciente.PsnFechaNac.ToString();
+            txtFecNac.Value = paciente.PsnFechaNac;
             txtTel.Value = paciente.PsnTelefono;
             txtDire.Value = paciente.PsnDomicilio;
             txtMail.Value = paciente.PsnEmail;
@@ -199,59 +172,12 @@ namespace FisiksAppWeb
 
             lblPaeId.Text = paciente.PaeId.ToString();
 
-            if (paciente.PaePeso == 0)
-            {
-                ddlPeso.SelectedIndex = 0;
-            }
-            else
-            {
-                ddlPeso.SelectedValue = paciente.PaePeso + " Kg";
-            }
-            if (paciente.PaeAltura == 0)
-            {
-                ddlAltura.SelectedIndex = 0;
-            }
-            else
-            {
-                ddlAltura.SelectedValue = paciente.PaeAltura + " cm";
-            }
-            if (paciente.PaeTensionMax == 0)
-            {
-                ddlMax.SelectedIndex = 0;
-            }
-            else
-            {
-                ddlMax.SelectedValue = paciente.PaeTensionMax.ToString();
-            }
-            if (paciente.PaeTensionMin == 0)
-            {
-                ddlMin.SelectedIndex = 0;
-            }
-            else
-            {
-                ddlMin.SelectedValue = paciente.PaeTensionMin.ToString();
-            }
-
-            //if (paciente.PaeActFisica == "S")
-            //{
-            //    cbAct.Checked = true;
-            //    txtAct.Value = paciente.PaePeriodicidad.ToString();
-            //}
-            //else if (paciente.PaeActFisica == "N")
-            //{
-            //    cbAct.Checked = false;
-            //    txtAct.Value = null;
-            //}
-
-            if (paciente.PaeOcuId == 0)
-            {
-                ddlPeso.SelectedIndex = 0;
-            }
-            else
-            {
-                ddlOcu.SelectedValue = Convert.ToString(paciente.PaeOcuId);
-            }
-
+            if (paciente.PaePeso == 0) { ddlPeso.SelectedIndex = 0; } else { ddlPeso.SelectedValue = paciente.PaePeso + " Kg"; }
+            if (paciente.PaeAltura == 0) { ddlAltura.SelectedIndex = 0; } else { ddlAltura.SelectedValue = paciente.PaeAltura + " cm"; }
+            if (paciente.PaeTensionMax == 0) { ddlMax.SelectedIndex = 0; } else { ddlMax.SelectedValue = paciente.PaeTensionMax.ToString(); }
+            if (paciente.PaeTensionMin == 0) { ddlMin.SelectedIndex = 0; } else { ddlMin.SelectedValue = paciente.PaeTensionMin.ToString(); }
+            if (paciente.PaeOcuId == 0) { ddlPeso.SelectedIndex = 0; } else { ddlOcu.SelectedValue = Convert.ToString(paciente.PaeOcuId); }
+            if (paciente.PaePeriodicidad == 0) { ddlAct.SelectedIndex = 0; } else { ddlAct.SelectedValue = paciente.PaePeriodicidad.ToString(); }
 
             #endregion
 
@@ -279,11 +205,6 @@ namespace FisiksAppWeb
 
                 gvOsocial.DataSource = dtCurrentTable;
                 gvOsocial.DataBind();
-
-                ddlOS.DataSource = dtCurrentTable;
-                ddlOS.DataValueField = "OSOID";
-                ddlOS.DataTextField = "OSODESCRIPCION";
-                ddlOS.DataBind();
             }
             catch (Exception e)
             {
@@ -312,9 +233,6 @@ namespace FisiksAppWeb
                         arregloCheckBoxs[i].Checked = true;
 
                         var anteMed = new PacienteAntecedentesDto();
-                        //varAteMed = varAteMed.Replace("ContentPlaceHolder1_ckAntMed", "");
-                        //varAteMed = varAteMed.Substring(varAteMed.Length - 2, 2);
-                        //varAteMed = varAteMed.Replace("ContentPlaceHolder1_", "");
                         anteMed.ApaAmeId = Convert.ToInt32(varAteMed);
                         listaAntMed.Add(anteMed);
                     }
@@ -326,6 +244,7 @@ namespace FisiksAppWeb
 
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            //btnGuardar.Visible = false;//////////////////////////////////////////////////////////////////////////////////////////////////
             var script = "editarPaciente();";
 
             ScriptManager.RegisterStartupScript(this, typeof(Page), "editarPaciente", script, true);
@@ -335,18 +254,17 @@ namespace FisiksAppWeb
             if (!string.IsNullOrEmpty(varPac))
             {
                 var pac = new PacienteDto();
-                pac = ManagerPacientes.ExistePaciente(varPac);
+                pac = ManagerPacientes.ExistePacienteDoc(varPac);
                 if (pac != null)
                 {
-                    lbl.Text = "Existe";
                     CargarDatosPantalla(pac);
+                    //btnGuardar.Visible = true;//////////////////////////////////////////////////////////////////////////////////////////////////
                     PanelPantalla.Visible = true;
-                    btnConfirmar.Visible = true;
                 }
             }
         }
 
-        #region Cargar Datos Iniciales
+        #region ----------- Cargar Datos Iniciales -------------
 
         private void CargarDatosIniciales()
         {
@@ -373,6 +291,12 @@ namespace FisiksAppWeb
             var min = PublicData.ArrayMaxMin();
             ddlMin.DataSource = min;
             ddlMin.DataBind();
+
+            //________________________________________________________________________________________________________
+            //  Cargar Actividad
+            var act = PublicData.ArrayActividad();
+            ddlAct.DataSource = act;
+            ddlAct.DataBind();
 
             //________________________________________________________________________________________________________
             //  Cargar Ocupaciones
@@ -427,10 +351,11 @@ namespace FisiksAppWeb
             {
                 var ckBoxs = new CheckBox();
                 var ameid = antemed.AmeId.ToString();
-                if (ameid.Length == 1){
+                if (ameid.Length == 1)
+                {
                     ameid = "0" + ameid;
                 }
-                ckBoxs.ID = "ckAntMed" +ameid.ToString();
+                ckBoxs.ID = "ckAntMed" + ameid.ToString();
                 ckBoxs.Text = " " + antemed.AmeDescripcion.ToString();
                 ckBoxs.AutoPostBack = true;
                 ckBoxs.CheckedChanged += new EventHandler(CheckBox_CheckedChanged);
@@ -455,33 +380,15 @@ namespace FisiksAppWeb
             //Response.Write(((CheckBox) sender).ClientID);
             var chk = (CheckBox)sender;
             chk.ID = ((CheckBox)sender).ClientID;
-            //var i = 0;
-            //foreach (var ck in arregloCheckBoxs)
-            //{
-            //    if (ckPant.Text == ck.Text)
-            //    {
-            //        arregloCheckBoxs[i].Checked = true;
-            //    }
-            //    i++;
-            //}
 
-            //foreach (Control c in PlaceHolder1.Controls)
-            //{
-            //    if (c.GetType() == typeof(CheckBox))
-            //    {
-            //        using (CheckBox chk = (CheckBox)c)
-            //        {
             var anteMed = new PacienteAntecedentesDto();
             var varAteMed = chk.ID;
             varAteMed = varAteMed.Substring(varAteMed.Length - 2, 2);
-            //varAteMed = varAteMed.Replace("ContentPlaceHolder1_ckAntMed", "");
-            //varAteMed = varAteMed.Replace("ContentPlaceHolder1_", "");
             anteMed.ApaAmeId = Convert.ToInt32(varAteMed);
             if (chk.Checked)
             {
                 var flag = new int();
                 flag = 0;
-
 
                 if (listaAntMed == null)
                 {
@@ -501,7 +408,6 @@ namespace FisiksAppWeb
                         listaAntMed.Add(anteMed);
                     }
                 }
-                //var cont = listaAntMed.Count;
             }
             else
             {
@@ -531,30 +437,20 @@ namespace FisiksAppWeb
             }
             catch (Exception e)
             {
-                //estaria bueno guardar los errores
-                //algo asi como erroresLog(id, decripcion, pantalla/metodo, fecha/hora)
                 var script = "showAlert('Error al cargar Grilla Paciente','2');";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
-
-            }
-            finally
-            { //lineas de codigo que se deben ejecutar siempre
-                //prueba  -> Anda el sowAlert a nivel masterpage, es accesible desde cualquier pantalla!!!
-                //var script = "showAlert('Carga Exitosa Grilla Paciente','1');";
-                //ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
             }
         }
 
         #endregion
 
-        #region Manejo de Obra Sociales
+        #region ----------- Manejo de Obra Sociales ------------
 
         private void ObraSocialIniFila()
         {
             try
             {
                 ViewState["DadaTableOS"] = null;
-                //Obra Social
                 var dtObraSoc = new DataTable();
                 dtObraSoc.Columns.Add(new DataColumn("OSOID", typeof(int)));
                 dtObraSoc.Columns.Add(new DataColumn("OSODESCRIPCION", typeof(string)));
@@ -564,14 +460,6 @@ namespace FisiksAppWeb
 
                 gvOsocial.DataSource = dtObraSoc;
                 gvOsocial.DataBind();
-
-                ddlOS.DataSource = dtObraSoc;
-                ddlOS.DataBind();
-
-                ddlOS.DataSource = dtObraSoc;
-                ddlOS.DataValueField = "OSOID";
-                ddlOS.DataTextField = "OSODESCRIPCION";
-                ddlOS.DataBind();
             }
             catch (Exception e)
             {
@@ -594,42 +482,23 @@ namespace FisiksAppWeb
             {
                 if (ViewState["DadaTableOS"] != null)
                 {
-                    //lblMsjObrasocial.Text = null;
-                    //lblMsjObrasocial.Visible = false;
                     var dtCurrentTable = (DataTable)ViewState["DadaTableOS"];
-                    //recorro la tabla para saber si se agrego otra OS igual
+
                     var controlExiste = false;
                     foreach (DataRow fila in dtCurrentTable.Rows)
                     {
                         if (fila["OSOID"].ToString() == ddlOS.SelectedValue)
                         {
-                            //lblMsjObrasocial.Visible = true;
-                            //lblMsjObrasocial.Text =
-                                //"Verifique los datos,  ya existe una Obra Social con distintos Número de Socio.";
-
-                            if (fila["OSOID"].ToString() == ddlOS.SelectedValue &&
-                                fila["OSPNROSOCIO"].ToString() == txtNrotarj.Value)
-                            {
-                                controlExiste = true;
-                                //lblMsjObrasocial.Text =
-                                    //"Verifique los datos, ya existe una Obra Social con el mismo Número de Socio.";
-                                break;
-                            }
+                            controlExiste = true;
+                            break;
                         }
-                    }
-                    if (ddlOS.SelectedIndex == 0)
-                    {
-                        //lblMsjObrasocial.Visible = true;
-                        //lblMsjObrasocial.Text =
-                                    //"Seleccione una Obra social de la lista.";
-                        controlExiste = true;
                     }
                     if (controlExiste == false)
                     {
                         DataRow drCurrentRow = null;
                         drCurrentRow = dtCurrentTable.NewRow();
 
-                        drCurrentRow["OSOID"] = ddlOS.SelectedItem.Value;
+                        drCurrentRow["OSOID"] = ddlOS.SelectedValue;
                         drCurrentRow["OSODESCRIPCION"] = ddlOS.SelectedItem.Text;
                         if (!string.IsNullOrEmpty(txtNrotarj.Value))
                         {
@@ -649,11 +518,6 @@ namespace FisiksAppWeb
 
                     gvOsocial.DataSource = dtCurrentTable;
                     gvOsocial.DataBind();
-
-                    ddlOS.DataSource = dtCurrentTable;
-                    ddlOS.DataValueField = "OSOID";
-                    ddlOS.DataTextField = "OSODESCRIPCION";
-                    ddlOS.DataBind();
                 }
             }
             catch (Exception e)
@@ -705,11 +569,6 @@ namespace FisiksAppWeb
             gvOsocial.DataBind();
             gvOsocial.UseAccessibleHeader = true;
             gvOsocial.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-            ddlOS.DataSource = ViewState["DadaTableOS"] as DataTable;
-            ddlOS.DataValueField = "OSOID";
-            ddlOS.DataTextField = "OSODESCRIPCION";
-            ddlOS.DataBind();
         }
 
         #endregion
@@ -722,73 +581,70 @@ namespace FisiksAppWeb
             txtDocumento.Value = null;
             txtNombre.Value = null;
             txtApellido.Value = null;
-            //lblHC.Value = null;
             txtFecNac.Value = null;
             txtTel.Value = null;
             txtDire.Value = null;
             txtMail.Value = null;
-            listaAntMed.Clear();
-
             rbM.Checked = true;
 
             ObraSocialIniFila();
-            ddlOcu.SelectedIndex = 0;
 
             ddlAltura.SelectedIndex = 0;
             ddlPeso.SelectedIndex = 0;
             ddlMax.SelectedIndex = 0;
             ddlMin.SelectedIndex = 0;
+            ddlAct.SelectedIndex = 0;
+            ddlOcu.SelectedIndex = 0;
+
+            listaAntMed.Clear();
 
             for (var i = 0; i < arregloCheckBoxs.Count(); i++)
             {
                 arregloCheckBoxs[i].Checked = false;
             }
 
-            txtAct.Value = null;
+            CargarGrilla();
         }
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
-                var personaPaciente = new PacienteDto();
-                ObtenerDatosPantalla(personaPaciente);
+                string error = null; string msj = null; int errorNro = 0;
+                var paciente = new PacienteDto();
+                ObtenerDatosPantalla(paciente);
                 var varEstado = Request.QueryString["e"];
                 if (varEstado == "N")
                 {
-                    String error = null;
-                    ManagerPacientes.GrabarPacienteInsert(ref personaPaciente, ref error);
-                    if (error == null)
-                    {
-                        var script = "showAlert('Paciente Guardado','1');";
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
-                        Limpiar();
-                    }
-                    else
-                    {
-                        var script = "showAlert('Error al grabar','2');";
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
-                    }
+                    ManagerPacientes.GrabarPacienteInsert(ref paciente, ref error, ref errorNro);
+                    msj = "Paciente Guardado.";
                 }
-
                 else if (varEstado == "B")
                 {
-                    string error = null;
-                    ManagerPacientes.GrabarPacienteUpdate(ref personaPaciente);//, ref error);
-                    if (error == null)
+                    ManagerPacientes.GrabarPacienteUpdate(ref paciente, ref error, ref errorNro);
+                    msj = "Paciente Actualizado.";
+                }
+                if (error == null)
+                {
+                    var script = "showAlert('" + msj + "','1');";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
+                    Limpiar();
+                    var script2 = "ocultarFormPaciente();";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "ocultarFormPaciente", script2, true);
+                }
+                else
+                {
+                    if (errorNro == -2)
                     {
-                        var script = "showAlert('Paciente Actualizado','1');";
+                        var script = "showAlert('" + error + "','3');";
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
-                        Limpiar();
-                        var script2 = "ocultarFormPaciente();";
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "ocultarFormPaciente", script2, true);
+                    }
+                    if (errorNro == -1)
+                    {
+                        var script = "showAlert('" + error + "','2');";
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
                     }
                 }
-            }
-            else
-            {
-                var script = "showAlert('Campos Incorrectos','2');";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "showAlert", script, true);
             }
         }
     }

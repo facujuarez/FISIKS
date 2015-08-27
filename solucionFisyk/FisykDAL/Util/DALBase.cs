@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using FisiksAppWeb.Util;
-using FisykDAL.Util;
 using Oracle.DataAccess.Client;
 
-namespace FisykDAL
+namespace FisykDAL.Util
 {
     public abstract class DalBase
     {
@@ -24,7 +23,7 @@ namespace FisykDAL
         }
         protected static OracleCommand CHAPA_GetDbSprocCommand(string sprocName)
         {
-            OracleCommand cmd = new OracleCommand(sprocName);
+            var cmd = new OracleCommand(sprocName);
             cmd.Connection = GetConn();
             cmd.CommandType = CommandType.Text;
             return cmd;
@@ -57,7 +56,7 @@ namespace FisykDAL
         // GetDbOracleCommand
         protected static OracleCommand GetDbOracleCommand(string sqlQuery)
         {
-            OracleCommand command = new OracleCommand();
+            var command = new OracleCommand();
             command.Connection = GetDbConnection();
             command.CommandType = CommandType.Text;
             command.CommandText = sqlQuery;
@@ -67,7 +66,7 @@ namespace FisykDAL
         // GetDbOracleCommand - ConnectionName
         protected static OracleCommand GetDbOracleCommand(string sqlQuery, string strConnectionName)
         {
-            OracleCommand command = new OracleCommand();
+            var command = new OracleCommand();
             command.Connection = GetDbConnection(strConnectionName);
             command.CommandType = CommandType.Text;
             command.CommandText = sqlQuery;
@@ -77,7 +76,7 @@ namespace FisykDAL
         // GetDbSprocCommand
         protected static OracleCommand GetDbSprocCommand(string sprocName)
         {
-            OracleCommand command = new OracleCommand(sprocName);
+            var command = new OracleCommand(sprocName);
             command.Connection = GetDbConnection();
             command.CommandType = CommandType.StoredProcedure;
             return command;
@@ -86,7 +85,7 @@ namespace FisykDAL
         // GetDbSprocCommand - ConnectionName
         protected static OracleCommand GetDbSprocCommand(string sprocName, string strConnectionName)
         {
-            OracleCommand command = new OracleCommand(sprocName);
+            var command = new OracleCommand(sprocName);
             command.Connection = GetDbConnection(strConnectionName);
             command.CommandType = CommandType.StoredProcedure;
             return command;
@@ -95,7 +94,7 @@ namespace FisykDAL
         // CreateNullParameter
         protected static OracleParameter CreateNullParameter(string name, OracleDbType paramType)
         {
-            OracleParameter parameter = new OracleParameter();
+            var parameter = new OracleParameter();
             parameter.OracleDbType = paramType;
             parameter.ParameterName = name;
             parameter.Value = null;
@@ -106,7 +105,7 @@ namespace FisykDAL
         // CreateNullParameter - with size for nvarchars
         protected static OracleParameter CreateNullParameter(string name, OracleDbType paramType, int size)
         {
-            OracleParameter parameter = new OracleParameter();
+            var parameter = new OracleParameter();
             parameter.OracleDbType = paramType; 
             parameter.ParameterName = name;
             parameter.Size = size;
@@ -118,7 +117,7 @@ namespace FisykDAL
         // CrearParametroSalida
         protected static OracleParameter CrearParametroSalida(string name, OracleDbType paramType)
         {
-            OracleParameter parameter = new OracleParameter();
+            var parameter = new OracleParameter();
             parameter.OracleDbType = paramType;
             parameter.ParameterName = name;
             parameter.Direction = ParameterDirection.Output;
@@ -128,7 +127,7 @@ namespace FisykDAL
         // CrearParametroSalida - with size for Varchar2
         protected static OracleParameter CrearParametroSalida(string name, OracleDbType paramType, int size)
         {
-            OracleParameter parameter = new OracleParameter();
+            var parameter = new OracleParameter();
             parameter.OracleDbType = paramType;
             parameter.Size = size;
             parameter.ParameterName = name;
@@ -165,7 +164,7 @@ namespace FisykDAL
             }
             else
             {
-                OracleParameter parameter = new OracleParameter();
+                var parameter = new OracleParameter();
                 parameter.OracleDbType = OracleDbType.Int32;
                 parameter.ParameterName = name;
                 parameter.Value = value;
@@ -184,7 +183,7 @@ namespace FisykDAL
             }
             else
             {
-                OracleParameter parameter = new OracleParameter();
+                var parameter = new OracleParameter();
                 parameter.OracleDbType = OracleDbType.Date;
                 parameter.ParameterName = name;
                 parameter.Value = value;
@@ -203,7 +202,7 @@ namespace FisykDAL
             }
             else
             {
-                OracleParameter parameter = new OracleParameter();
+                var parameter = new OracleParameter();
                 parameter.OracleDbType = OracleDbType.Varchar2;
                 parameter.Size = size;
                 parameter.ParameterName = name;
@@ -223,7 +222,7 @@ namespace FisykDAL
             }
             else
             {
-                OracleParameter parameter = new OracleParameter();
+                var parameter = new OracleParameter();
                 parameter.OracleDbType = OracleDbType.Decimal;
                 parameter.ParameterName = name;
                 parameter.Value = value;
@@ -242,7 +241,7 @@ namespace FisykDAL
             }
             else
             {
-                OracleParameter parameter = new OracleParameter();
+                var parameter = new OracleParameter();
                 parameter.OracleDbType = OracleDbType.Decimal;
                 parameter.ParameterName = name;
                 parameter.Value = value;
@@ -258,11 +257,11 @@ namespace FisykDAL
             try
             {
                 command.Connection.Open();
-                OracleDataReader reader = command.ExecuteReader();
+                var reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
                     reader.Read();
-                    DtoParserSqlOracle parser = DtoParserFactory.GetParserOracleClient(typeof(T));
+                    var parser = DtoParserFactory.GetParserOracleClient(typeof(T));
                     parser.PopulateOrdinals(reader);
                     dto = (T)parser.PopulateDto(reader);
                     reader.Close();
@@ -289,16 +288,16 @@ namespace FisykDAL
         // GetDTOList
         protected static List<T> GetDtoList<T>(ref OracleCommand command) where T : DtoBase
         {
-            List<T> dtoList = new List<T>();
+            var dtoList = new List<T>();
             try
             {
                 command.Connection.Open();
-                OracleDataReader reader = command.ExecuteReader();
+                var reader = command.ExecuteReader();
                 if (reader.HasRows)
                 {
                     // Get a parser for this DTO type and populate
                     // the ordinals.
-                    DtoParserSqlOracle parser = DtoParserFactory.GetParserOracleClient(typeof(T));
+                    var parser = DtoParserFactory.GetParserOracleClient(typeof(T));
                     parser.PopulateOrdinals(reader);
                     // Use the parser to build our list of DTOs.
                     while (reader.Read())

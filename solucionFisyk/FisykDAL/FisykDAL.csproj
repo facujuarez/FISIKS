@@ -68,10 +68,11 @@
     <Compile Include="DAL\ProfesionalEspecialidadesDb.cs" />
     <Compile Include="DAL\ProfesionalMatriculaDb.cs" />
     <Compile Include="DAL\MatriculaTipoDb.cs" />
-    <Compile Include="DAL\TurneroDB.cs" />
+    <Compile Include="DAL\TurneroDb.cs" />
     <Compile Include="Parsers\DpDiaTipo.cs" />
     <Compile Include="Parsers\DpLicencias.cs" />
     <Compile Include="Parsers\DpLicenciasTipo.cs" />
+    <Compile Include="Parsers\DpProfesionalEspecialidades.cs" />
     <Compile Include="Parsers\DpProfesionalMatricula.cs" />
     <Compile Include="Parsers\DpTipoDocumento.cs" />
     <Compile Include="Parsers\DpTratamiento.cs" />
@@ -112,11 +113,10 @@
     <Compile Include="DAL\TestTipoDb.cs" />
     <Compile Include="DAL\TipoDocumentoDb.cs" />
     <Compile Include="DAL\TratamientoDb.cs" />
-    <Compile Include="DAL\TurnoDb.cs" />
+    <Compile Include="Util\DalBase.cs" />
     <Compile Include="Parsers\DpEspecialidades.cs" />
     <Compile Include="Parsers\DpMatricula.cs" />
     <Compile Include="Parsers\DpMatriculaTipo.cs" />
-    <Compile Include="Util\DALBase.cs" />
     <Compile Include="Util\DtoParser.cs" />
     <Compile Include="Util\DtoParserFactory.cs" />
     <Compile Include="Util\DtoParserSQLOracle.cs" />

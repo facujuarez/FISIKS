@@ -106,74 +106,57 @@ C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisiksA
 C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisiksAppWeb\bin\HtmlAgilityPack.xml
 C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykDAL.pdb
 C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisiksAppWeb.dll.config
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisiksAppWeb.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisiksAppWeb.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\AjaxControlToolkit.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykBLL.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykDTO.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\HtmlAgilityPack.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykDAL.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\Oracle.DataAccess.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykBLL.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykDTO.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\HtmlAgilityPack.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\HtmlAgilityPack.xml
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykDAL.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\obj\Debug\FisiksAppWeb.csprojResolveAssemblyReference.cache
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisiksAppWeb.dll.config
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisiksAppWeb.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisiksAppWeb.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\AjaxControlToolkit.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykBLL.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykDTO.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\HtmlAgilityPack.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykDAL.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\Oracle.DataAccess.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykBLL.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykDTO.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\HtmlAgilityPack.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\HtmlAgilityPack.xml
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\bin\FisykDAL.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\obj\Debug\FisiksAppWeb.csprojResolveAssemblyReference.cache
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.dll.config
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.dll
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\AjaxControlToolkit.dll
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisykBLL.dll
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisykDTO.dll
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.dll
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisykDAL.dll
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\Oracle.DataAccess.dll
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisykBLL.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisykDTO.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.xml
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisykDAL.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.csprojResolveAssemblyReference.cache
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
-D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.dll.config
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.dll
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.pdb
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\AjaxControlToolkit.dll
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykBLL.dll
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykDTO.dll
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.dll
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykDAL.dll
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\Oracle.DataAccess.dll
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykBLL.pdb
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykDTO.pdb
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.pdb
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.xml
-D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykDAL.pdb
-D:\Fisiks\solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
-D:\Fisiks\solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\obj\Debug\FisiksAppWeb.csprojResolveAssemblyReference.cache
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\FisiksAppWeb.dll.config
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\FisiksAppWeb.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\FisiksAppWeb.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\AjaxControlToolkit.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\FisykBLL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\HtmlAgilityPack.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\Oracle.DataAccess.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\FisykBLL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\HtmlAgilityPack.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\HtmlAgilityPack.xml
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\bin\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150823\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\FisiksAppWeb.dll.config
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\FisiksAppWeb.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\FisiksAppWeb.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\AjaxControlToolkit.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\FisykBLL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\HtmlAgilityPack.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\Oracle.DataAccess.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\FisykBLL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\HtmlAgilityPack.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\HtmlAgilityPack.xml
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\bin\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\obj\Debug\FisiksAppWeb.csprojResolveAssemblyReference.cache
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\FisiksAppWeb.dll.config
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\FisiksAppWeb.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\FisiksAppWeb.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\AjaxControlToolkit.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\FisykBLL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\HtmlAgilityPack.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\FisykDAL.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\Oracle.DataAccess.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\FisykBLL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\HtmlAgilityPack.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\HtmlAgilityPack.xml
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\bin\FisykDAL.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\obj\Debug\FisiksAppWeb.csprojResolveAssemblyReference.cache
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb

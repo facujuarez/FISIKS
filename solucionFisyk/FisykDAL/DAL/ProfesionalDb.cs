@@ -206,7 +206,7 @@ namespace FisykDAL.DAL
                         Connection = con
                     };
                     cmdEsp.Parameters.Add(CreateParameter("iPEP_PROID", profesional.ProId));//NUMBER
-                    cmdEsp.Parameters.Add(CreateParameter("iPEP_ESPID", oPe.PepEpcId));//NUMBER 
+                    cmdEsp.Parameters.Add(CreateParameter("iPEP_EPCID", oPe.PepEpcId));//NUMBER 
 
                     cmdEsp.Transaction = tran;
                     cmdEsp.ExecuteNonQuery();//EJECUTO CONSULTA
@@ -255,7 +255,7 @@ namespace FisykDAL.DAL
                 //---------------------------------------------------------
                 foreach (var oPa in profesional.ProListAgenda)
                 {
-                    cmdAge = new OracleCommand("PRC_PROFESIONALAGE_UPDATE")
+                    cmdAge = new OracleCommand("PRC_PROFESIONALAGE_INSERT")
                     {
                         CommandType = CommandType.StoredProcedure,
                         Connection = con
@@ -294,7 +294,7 @@ namespace FisykDAL.DAL
 
 
         //________________________________________________________________________________________________________
-        // Un Profesional
+        // Consulto Un Profesional DOCUMENTO
         public static ProfesionalDto ConsultoUnProfesional(string nroDoc)
         {
             try
@@ -302,6 +302,23 @@ namespace FisykDAL.DAL
                 var cmd = GetDbSprocCommand("PRC_PROFESIONAL_SELECT");
                 cmd.Parameters.Add(CreateParameter("iPsnnrodcto", nroDoc, 9));//VARCHAR
                 cmd.Parameters.Add("oCursorProfesional", OracleDbType.RefCursor, ParameterDirection.Output);//CURSOR
+                return GetSingleDto<ProfesionalDto>(ref cmd);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        //________________________________________________________________________________________________________
+        // Consulto Un Profesional ID
+        public static ProfesionalDto ConsultoUnProfesionalPk(int proId)
+        {
+            try
+            {
+                var cmd = GetDbSprocCommand("PRC_PROFESIONAL_PK");
+                cmd.Parameters.Add(CreateParameter("iPROID", proId));//VARCHAR
+                cmd.Parameters.Add("oCursor", OracleDbType.RefCursor, ParameterDirection.Output);//CURSOR
                 return GetSingleDto<ProfesionalDto>(ref cmd);
             }
             catch (Exception e)

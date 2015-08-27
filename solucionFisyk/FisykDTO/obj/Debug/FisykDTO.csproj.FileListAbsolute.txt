@@ -29,17 +29,11 @@ C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykDT
 C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykDTO\bin\Debug\FisykDTO.pdb
 C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykDTO\obj\Debug\FisykDTO.dll
 C:\Users\Chapa\Desktop\SolucionFisyk - 20150822\SolucionFisyk - 20150822\FisykDTO\obj\Debug\FisykDTO.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDTO\bin\Debug\FisykDTO.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDTO\bin\Debug\FisykDTO.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDTO\obj\Debug\FisykDTO.csprojResolveAssemblyReference.cache
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDTO\obj\Debug\FisykDTO.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823\SolucionFisyk - 20150822\FisykDTO\obj\Debug\FisykDTO.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDTO\bin\Debug\FisykDTO.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDTO\bin\Debug\FisykDTO.pdb
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDTO\obj\Debug\FisykDTO.csprojResolveAssemblyReference.cache
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDTO\obj\Debug\FisykDTO.dll
-C:\Users\Facu\Desktop\SolucionFisyk - 20150823-facu\SolucionFisyk - 20150822\FisykDTO\obj\Debug\FisykDTO.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisykDTO\bin\Debug\FisykDTO.dll
-D:\Fisiks\25-08 -solucionFisyk\FisykDTO\bin\Debug\FisykDTO.pdb
-D:\Fisiks\25-08 -solucionFisyk\FisykDTO\obj\Debug\FisykDTO.dll
-D:\Fisiks\25-08 -solucionFisyk\FisykDTO\obj\Debug\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDTO\bin\Debug\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDTO\bin\Debug\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDTO\obj\Debug\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150824\FisykDTO\obj\Debug\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDTO\bin\Debug\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDTO\bin\Debug\FisykDTO.pdb
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDTO\obj\Debug\FisykDTO.dll
+C:\Users\Chapa\Desktop\SolucionFisyk - 20150825\FisykDTO\obj\Debug\FisykDTO.pdb

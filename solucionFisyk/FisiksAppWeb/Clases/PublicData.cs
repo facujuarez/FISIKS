@@ -6,6 +6,19 @@ namespace FisiksAppWeb.Clases
     public class PublicData
     {
         //________________________________________________________________________________________________________
+        //  Genero ArrayList del Actividad ( 0 - 1 al 7)
+        public static ArrayList ArrayActividad()
+        {
+            var act = new ArrayList();
+            act.Add("Elegir...");
+            for (var i = 0; i <= 7; i++)
+            {
+                act.Add(i);
+            }
+            return act;
+        }
+
+        //________________________________________________________________________________________________________
         //  Genero ArrayList de Altura
         public static ArrayList ArrayAltura()
         {
@@ -24,7 +37,7 @@ namespace FisiksAppWeb.Clases
         {
             var peso = new ArrayList();
             peso.Add("Elegir...");
-            for (var i = 2; i <= 200; i++)
+            for (var i = 10; i <= 200; i++)
             {
                 peso.Add(i + " Kg");
             }
@@ -37,7 +50,6 @@ namespace FisiksAppWeb.Clases
         {
             var maxMin = new ArrayList();
             maxMin.Add("Elegir...");
-            maxMin.Add("");
             for (var i = 5; i <= 20; i++)
             {
                 maxMin.Add(i);

@@ -9,10 +9,10 @@ namespace FisiksAppWeb.Entities
         public int ProPsnId { get; set; }
 
         
-        public List<ProfesionalMatriculaDto> ProListMatriculas = new List<ProfesionalMatriculaDto>();
-        public List<ProfesionalEspecialidadesDto> ProListEspecialidades = new List<ProfesionalEspecialidadesDto>();
-        public List<AgendaDto> ProListAgenda = new List<AgendaDto>();
-        public List<LicenciasDto> ProListLicencias = new List<LicenciasDto>();
+        public List<ProfesionalMatriculaDto> ProListMatriculas { get; set; }
+        public List<ProfesionalEspecialidadesDto> ProListEspecialidades { get; set; }
+        public List<AgendaDto> ProListAgenda { get; set; }
+
 
         public ProfesionalDto()
         {
