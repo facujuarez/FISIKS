@@ -178,9 +178,8 @@
     <Content Include="LibsCalendar\jquery\jquery-ui-timepicker-addon-1.4.5.js" />
     <Content Include="LibsCalendar\jquery\jquery.qtip-2.2.0.js" />
     <Content Include="LibsCalendar\jquery\moment-2.8.1.min.js" />
-    <Content Include="LibsCalendar\scripts\scriptCalendar.js" />
-    <Content Include="LibsCalendar\scripts\scriptCalendario2.js" />
-    <Content Include="LibsCalendar\scripts\scriptCalendario.js" />
+    <Content Include="LibsCalendar\scripts\scriptCalendario4.js" />
+    <Content Include="LibsCalendar\scripts\scriptCalendario3.js" />
     <Content Include="PacientesAbm.aspx" />
     <Content Include="plugins\bootstrapValidator\bootstrapValidator.min.css" />
     <Content Include="plugins\bootstrapValidator\bootstrapValidator.min.js" />

@@ -121,11 +121,11 @@
                         </td>
                     </tr>
                     <tr>
+
                         <td class="alignRight">Obra social:</td>
                         <td class="alignLeft">
-                            <select id="eventOS">
-                                <option value="1">Apross</option>
-                                <option value="2">Swiss Medical</option>
+                            <select id="eventOS" onchange="cargarCoseguroUpdate(this.value)">
+                                <option></option>
                             </select>
                             <br />
                         </td>
@@ -254,6 +254,7 @@
                         <td class="alignRight">Obra social:</td>
                         <td class="alignLeft">
                             <select id="addEventOS" onchange="cargarCoseguro(this.value)">
+                                <option></option>
                             </select>
                             <br />
                         </td>
@@ -332,7 +333,7 @@
     <script src="LibsCalendar/jquery/jquery.qtip-2.2.0.js" type="text/javascript"></script>
     <script src="LibsCalendar/fullcalendar/fullcalendar-2.0.3.js" type="text/javascript"></script>
     <script src="LibsCalendar/fullcalendar/es.js" type="text/javascript"></script>
-    <script src="LibsCalendar/scripts/scriptCalendario2.js" type="text/javascript"></script>
+    <script src="LibsCalendar/scripts/scriptCalendario4.js" type="text/javascript"></script>
     <script type="text/javascript">
         $("#buscarPaciente").click(function () {
 

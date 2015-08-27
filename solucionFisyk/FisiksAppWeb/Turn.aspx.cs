@@ -161,6 +161,7 @@ namespace FisiksAppWeb
         private void Limpiar()
         { }
 
+        [System.Web.Services.WebMethod(true)]
         public static List<PacienteOsDto> buscarOSPaciente(int idPac)
         {
             List<PacienteOsDto> listaObraSoc = new List<PacienteOsDto>();

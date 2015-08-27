@@ -160,3 +160,20 @@ D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\bin\FisykDAL.pdb
 D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.csprojResolveAssemblyReference.cache
 D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
 D:\Fisiks\25-08 -solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.dll.config
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.dll
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisiksAppWeb.pdb
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\AjaxControlToolkit.dll
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\AjaxControlToolkit.HtmlEditor.Sanitizer.dll
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykBLL.dll
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykDTO.dll
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.dll
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykDAL.dll
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\Oracle.DataAccess.dll
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykBLL.pdb
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykDTO.pdb
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.pdb
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\HtmlAgilityPack.xml
+D:\Fisiks\solucionFisyk\FisiksAppWeb\bin\FisykDAL.pdb
+D:\Fisiks\solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.dll
+D:\Fisiks\solucionFisyk\FisiksAppWeb\obj\Debug\FisiksAppWeb.pdb
